@@ -20,7 +20,7 @@
 
   
 
-  <title>Archives | 加绒的时间与精神之屋</title>
+  <title>comment | 加绒的时间与精神之屋</title>
 
   
 
@@ -77,70 +77,68 @@
 
   
   
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
     <div class="header-content">
       
         <div class="post-image" style="background-image: url(/images/banner.jpg)"></div>
       
 
       <div class="post-text">
-        <h1 class="title-wrap">归档</h1>
-        <h2 class="title-sub-wrap">共有1篇文章</h2>
+        <h1 class="title-wrap">comment</h1>
+        
       </div>
     </div>
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
   
   
 </header>
 
-    <!-- 归档 -->
+    <!-- 分页(其他自定义页面) -->
 
-<!-- post list container -->
-<div class="body-container float">
-  <div class="content-container article-list">
-    <div class="card-container card-articles">
-      <div class="card-list">
-        
-          
-          <div class="card-item">
-            <article>
-              
-              
-                <a class="article-link card-link" href="/2021/02/02/hello-world/" itemprop="url"></a>
-              
-              <h2 class="article-title">hello-world</h2>
-              <div class="article-meta">
-                <strong>bitterlemon</strong>
-                <span>发布于</span>
-                
-  <a href="/2021/02/02/hello-world/" class="article-date">
-    <time datetime="2021-02-02T09:54:49.975Z" itemprop="datePublished">2021-02-02</time>
-  </a>
+<!-- 自定义页面 -->
 
-              </div>
-              <div class="article-category">
-                
-              </div>
-            </article>
-          </div>
+<div class="body-container">
+  
+  
+
+  
+  
+
+  
+  
+    <article class="content-container next">
+      <div class="article-content">
         
-      </div>
+  
+  
+    <div class="valine-container">
+      <div id="valine_thread" class="valine-thread"></div>
     </div>
-  </div>
+  
+
+  
+  
+    <div class="disqus-container">
+      <p id="disqus_error" class="disqus-error" style="display: none;">如果你看不到评论，那么就真的看不到评论 w(゜Д゜)w</p>
+      <div id="disqus_thread" class="disqus-thread"></div>
+    </div>
+  
+
+
+      </div>
+    </article>
+  
 </div>
-
-<!-- page container -->
-
 
 
     <!-- footer container -->
@@ -193,6 +191,34 @@
   
   
 
+  <!-- disqus 评论 start -->
+  <script type="text/javascript">
+    /*
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    /*
+      var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+    */
+
+    (function() {
+      var d = document, s = d.createElement('script'), c = d.querySelector(".disqus-container");
+      if (!c) return;
+      s.src = 'https://https://bitterlemonn.github.io/.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      s.onerror = () => {
+        let t = document.querySelector("#disqus_error");
+        t.style.display = "block";
+      }
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <!-- disqus 评论 end -->
+  
 
   <!-- aplayer 音频 start -->
   <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
