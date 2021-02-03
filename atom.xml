@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-02T15:14:54.500Z</updated>
+  <updated>2021-02-03T04:32:29.870Z</updated>
   <id>/</id>
   
   <author>
@@ -17,46 +17,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hello-world</title>
-    <link href="/2021/02/02/hello-world/"/>
-    <id>/2021/02/02/hello-world/</id>
-    <published>2021-02-02T09:54:49.975Z</published>
-    <updated>2021-02-02T15:14:54.500Z</updated>
+    <title>build</title>
+    <link href="/2021/02/03/build/"/>
+    <id>/2021/02/03/build/</id>
+    <published>2021-02-03T04:30:45.000Z</published>
+    <updated>2021-02-03T04:32:29.870Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
     </summary>
     
+      <category term="随想" scheme="/categories/%E9%9A%8F%E6%83%B3/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Hexo-Theme-Sakura</title>
-    <link href="/2018/12/12/Hexo-Theme-Sakura/"/>
-    <id>/2018/12/12/Hexo-Theme-Sakura/</id>
-    <published>2018-12-12T14:16:01.000Z</published>
-    <updated>2020-03-16T10:41:30.000Z</updated>
-    
-    <summary type="html">
-    
-      hexo-sakura主题使用教程
-    
-    </summary>
-    
-      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="web" scheme="/tags/web/"/>
-    
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
