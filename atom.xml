@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="/"/>
+  <link href="https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/"/>
   <updated>2021-02-03T08:55:36.051Z</updated>
-  <id>/</id>
+  <id>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/</id>
   
   <author>
     <name>BitterLemon</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>博客它终于建好啦</title>
-    <link href="/2021/02/03/build/"/>
-    <id>/2021/02/03/build/</id>
+    <link href="https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/2021/02/03/build/"/>
+    <id>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/2021/02/03/build/</id>
     <published>2021-02-03T04:30:45.000Z</published>
     <updated>2021-02-03T08:55:36.051Z</updated>
     
@@ -35,7 +35,7 @@
     
     </summary>
     
-      <category term="随想" scheme="/categories/%E9%9A%8F%E6%83%B3/"/>
+      <category term="随想" scheme="https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/categories/%E9%9A%8F%E6%83%B3/"/>
     
     
   </entry>
