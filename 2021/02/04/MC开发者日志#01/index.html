@@ -18,7 +18,7 @@
 	})();
   </script>
   
-  <title itemprop="name">archive_a | 加绒的时间与精神之屋</title>
+  <title itemprop="name">MC开发者日志#01 | 加绒的时间与精神之屋</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -390,78 +390,556 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://www.hualigs.cn/image/601a63bf70cc0.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://www.hualigs.cn/image/601a63bf70cc0.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      MC开发者日志#01</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://BitterLemonn.github.io">
+            <img src="https://www.hualigs.cn/image/60198f9e2d601.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://BitterLemonn.github.io">BitterLemon</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-2-4<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2021年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      02月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2021/02/04/MC开发者日志#01/">
-                          <span style="color:#0bf;">
-                          04日23:56:12</span>
-                          MC开发者日志#01
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2021/02/03/build/">
-                          <span style="color:#0bf;">
-                          03日12:30:45</span>
-                          博客它终于建好啦
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="MC开发者日志-01"><a href="#MC开发者日志-01" class="headerlink" title="MC开发者日志#01"></a>MC开发者日志#01</h1><p>　　早上起床第一件事马上投入今天的开发时间，今天又是神清气爽的一天呢。又会有什么样的bug等着我呢？让我们公布一下吧，今日最佳：</p>
+<font size="15" color="blad"><center>MVP</center></font>
+
+<p><div align="center"><img src="https://img03.mifile.cn/v1/MI_542ED8B1722DC/f6357c7f5c2d0ff39d86b970fe72b5c5.png" alt="bug.png"></div></p>
+<p>今日MVP：耗时超过8小时，至今未解决(#｀皿´)</p>
+<h1 id="今日整理"><a href="#今日整理" class="headerlink" title="今日整理"></a>今日整理</h1><p>　　首先是将之前没完成的辉套装的护腿和靴子部分完成了，并且为他们各自提供了合成配方</p>
+<p><img src="https://img06.mifile.cn/v1/MI_542ED8B1722DC/c976dbbbc17d4e0f082b563e4cff7fe2.png" alt="辉套装背面.jpg"><img src="https://img03.mifile.cn/v1/MI_542ED8B1722DC/8c82b2d2c859b7a04257a9cfae330ea8.png" alt="辉套装正面.jpg" style="zoom:95%;"></p>
+<p>护腿合成配方的json如下：</p>
+<p><code>{
+    &quot;format_version&quot;: &quot;1.12&quot;,
+    &quot;minecraft:recipe_shaped&quot;: {
+        &quot;description&quot;: {
+            &quot;identifier&quot;: &quot;fantasy_world:splendor_legging&quot;
+        },
+        &quot;key&quot;: {
+            &quot;X&quot;: {
+                &quot;data&quot;: -1,
+                &quot;item&quot;: &quot;fantasy_world:moon_dust&quot;
+            },
+            &quot;O&quot;: {
+                &quot;data&quot;: -1,
+                &quot;item&quot;: &quot;fantasy_world:star_ingot&quot;
+            }
+        },
+        &quot;pattern&quot;: [
+            &quot;OOO&quot;,
+            &quot;X X&quot;,
+            &quot;O O&quot;
+        ],
+        &quot;result&quot;: {
+            &quot;count&quot;: 1,
+            &quot;data&quot;: 0,
+            &quot;item&quot;: &quot;fantasy_world:splendor_legging&quot;
+        },
+        &quot;tags&quot;: [
+            &quot;crafting_table&quot;
+        ]
+    }
+}</code></p>
+<p>　　在编辑配方时需要注意的是“key”值的自定义要与合成配方的”pattern“相对应，最后的”tag“描述的是合成配方支持在何处合成，就算是在背包中的四格合成栏也要把”tag“给写上不然游戏会提示配方没有合成位置并报错，<strong>正确的处理方法是写上”tag“但是内容留空，这样就可以使其在背包内合成（其实就算”tag“标记为”crafting_table“也是可以在背包合成的，只要配方的”pattern“在2*2之内</strong>）</p>
+<p>今天的主要任务是创造了一个新的自定义生物——幻鹿</p>
+<p><img src="https://img07.mifile.cn/v1/MI_542ED8B1722DC/1c9a30c90cf52aeae950a9e3365b5f1a.png" alt="magic_deer.png"></p>
+<p>利用的是原版牛的模型进行更改，建模过程没有啥技术点好分析的，主要是保证骨骼的绑定，因为没有对原版的骨骼进行修改所以主要的骨骼只有 头部 身体 四条腿。幻鹿的脖子其实是绑在了身体上的，旋转头部时脖子是不会跟着旋转的，所以有时候就会出现一些诡异的动作<del>（比如脖子从头里伸出来）</del></p>
+<p>下面是幻鹿的实体行为json：</p>
+<p><code>{
+    &quot;format_version&quot;: &quot;1.12.0&quot;,
+    &quot;minecraft:entity&quot;: {
+        &quot;component_groups&quot;: {
+            &quot;minecraft:magic_deer_adult&quot;: {
+                &quot;minecraft:experience_reward&quot;: {
+                    &quot;on_death&quot;: &quot;query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0&quot;
+                }
+            },
+            &quot;minecraft:magic_deer_angry&quot;: {
+                &quot;minecraft:angry&quot;: {
+                    &quot;broadcast_anger&quot;: true,
+                    &quot;broadcast_range&quot;: 20,
+                    &quot;calm_event&quot;: {
+                        &quot;event&quot;: &quot;minecraft:on_calm&quot;,
+                        &quot;target&quot;: &quot;self&quot;
+                    },
+                    &quot;duration&quot;: 25
+                }
+            },
+            &quot;minecraft:magic_deer_baby&quot;: {
+                &quot;minecraft:experience_reward&quot;: {
+                    &quot;on_death&quot;: &quot;query.last_hit_by_player ? 2 + (query.equipment_count * Math.Random(1,3)) : 0&quot;
+                },
+                &quot;minecraft:is_baby&quot;: {
+                },
+                &quot;minecraft:scale&quot;: {
+                    &quot;value&quot;: 0.5
+                }
+            },
+            &quot;minecraft:magic_deer_calm&quot;: {
+                &quot;minecraft:on_target_acquired&quot;: {
+                    &quot;event&quot;: &quot;minecraft:become_angry&quot;,
+                    &quot;target&quot;: &quot;self&quot;
+                }
+            }
+        },
+        &quot;components&quot;: {
+            &quot;minecraft:attack&quot;: {
+                &quot;damage&quot;: 3.0
+            },
+            &quot;minecraft:behavior.look_at_player&quot;: {
+                &quot;look_distance&quot;: 8,
+                &quot;priority&quot;: 6
+            },
+            &quot;minecraft:behavior.melee_attack&quot;: {
+                &quot;priority&quot;: 1,
+                &quot;reach_multiplier&quot;: 2.0,
+                &quot;speed_multiplier&quot;: 1.0,
+                &quot;track_target&quot;: true
+            },
+            &quot;minecraft:behavior.nearest_attackable_target&quot;: {
+                &quot;attack_interval&quot;: 5,
+                &quot;entity_types&quot;: [
+                    {
+                        &quot;filters&quot;: {
+                            &quot;any_of&quot;: [
+                                {
+                                    &quot;subject&quot;: &quot;other&quot;,
+                                    &quot;test&quot;: &quot;is_family&quot;,
+                                    &quot;value&quot;: &quot;zombie&quot;
+                                }
+                            ]
+                        },
+                        &quot;max_dist&quot;: 8
+                    }
+                ],
+                &quot;must_see&quot;: true,
+                &quot;priority&quot;: 0,
+                &quot;reselect_targets&quot;: true
+            },
+            &quot;minecraft:behavior.random_stroll&quot;: {
+                &quot;priority&quot;: 8,
+                &quot;speed_multiplier&quot;: 0.8
+            },
+            &quot;minecraft:can_climb&quot;: {
+            },
+            &quot;minecraft:collision_box&quot;: {
+                &quot;height&quot;: 1.65,
+                &quot;width&quot;: 1.0
+            },
+            &quot;minecraft:health&quot;: {
+                &quot;max&quot;: 30.0,
+                &quot;value&quot;: 30.0
+            },
+            &quot;minecraft:jump.static&quot;: {
+            },
+            &quot;minecraft:loot&quot;: {
+                &quot;table&quot;: &quot;loot_tables/netease/kill_magic_deer.json&quot;
+            },
+            &quot;minecraft:movement&quot;: {
+                &quot;value&quot;: 0.4
+            },
+            &quot;minecraft:movement.basic&quot;: {
+                &quot;max_turn&quot;: 5
+            },
+            &quot;minecraft:nameable&quot;: {
+            },
+            &quot;minecraft:navigation.walk&quot;: {
+                &quot;avoid_water&quot;: true,
+                &quot;can_open_doors&quot;: false,
+                &quot;can_pass_doors&quot;: true,
+                &quot;can_path_over_water&quot;: true,
+                &quot;can_walk&quot;: true,
+                &quot;is_amphibious&quot;: true
+            },
+            &quot;minecraft:physics&quot;: {
+            },
+            &quot;minecraft:pushable&quot;: {
+                &quot;is_pushable&quot;: true,
+                &quot;is_pushable_by_piston&quot;: true
+            },
+            &quot;minecraft:scale&quot;: {
+                &quot;value&quot;: 1
+            },
+            &quot;minecraft:storyline&quot;: {
+                &quot;name&quot;: &quot;&quot;
+            },
+            &quot;minecraft:type_family&quot;: {
+                &quot;family&quot;: [
+                    &quot;mob&quot;,
+                    &quot;deer&quot;
+                ]
+            },
+            &quot;minecraft:underwater_movement&quot;: {
+                &quot;value&quot;: 0.25
+            }
+        },
+        &quot;description&quot;: {
+            &quot;identifier&quot;: &quot;fantasy_world:magic_deer&quot;,
+            &quot;is_experimental&quot;: false,
+            &quot;is_spawnable&quot;: true,
+            &quot;is_summonable&quot;: true,
+            &quot;runtime_identifier&quot;: &quot;fantasy_world:magic_deer&quot;
+        },
+        &quot;events&quot;: {
+            &quot;minecraft:become_angry&quot;: {
+                &quot;add&quot;: {
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_angry&quot;
+                    ]
+                },
+                &quot;remove&quot;: {
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_calm&quot;
+                    ]
+                }
+            },
+            &quot;minecraft:entity_spawned&quot;: {
+                &quot;randomize&quot;: [
+                    {
+                        &quot;add&quot;: {
+                            &quot;component_groups&quot;: [
+                                &quot;minecraft:magic_deer_adult&quot;,
+                                &quot;minecraft:magic_deer_calm&quot;
+                            ]
+                        },
+                        &quot;remove&quot;: {
+                        },
+                        &quot;weight&quot;: 95
+                    },
+                    {
+                        &quot;add&quot;: {
+                            &quot;component_groups&quot;: [
+                                &quot;minecraft:magic_deer_baby&quot;,
+                                &quot;minecraft:magic_deer_calm&quot;
+                            ]
+                        },
+                        &quot;remove&quot;: {
+                        },
+                        &quot;weight&quot;: 5
+                    }
+                ]
+            },
+            &quot;minecraft:entity_transformed&quot;: {
+                &quot;sequence&quot;: [
+                    {
+                        &quot;add&quot;: {
+                            &quot;component_groups&quot;: [
+                                &quot;minecraft:magic_deer_baby&quot;,
+                                &quot;minecraft:magic_deer_calm&quot;
+                            ]
+                        },
+                        &quot;filters&quot;: {
+                            &quot;subject&quot;: &quot;other&quot;,
+                            &quot;test&quot;: &quot;has_component&quot;,
+                            &quot;value&quot;: &quot;minecraft:is_baby&quot;
+                        }
+                    },
+                    {
+                        &quot;add&quot;: {
+                            &quot;component_groups&quot;: [
+                                &quot;minecraft:magic_deer_adult&quot;,
+                                &quot;minecraft:magic_deer_calm&quot;
+                            ]
+                        },
+                        &quot;filters&quot;: {
+                            &quot;operator&quot;: &quot;!=&quot;,
+                            &quot;subject&quot;: &quot;other&quot;,
+                            &quot;test&quot;: &quot;has_component&quot;,
+                            &quot;value&quot;: &quot;minecraft:is_baby&quot;
+                        }
+                    }
+                ]
+            },
+            &quot;minecraft:on_calm&quot;: {
+                &quot;add&quot;: {
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_calm&quot;
+                    ]
+                },
+                &quot;remove&quot;: {
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_angry&quot;
+                    ]
+                }
+            }
+        }
+    }
+}</code></p>
+<p>主要需要关注的是”component_groups”的部分以及”event”的部分，幻鹿的设计思路是如同僵尸猪人般的中立性型生物，所以从僵尸猪人的行为json中提取出了包含angry属性的内容</p>
+<pre><code class="json">        &quot;minecraft:magic_deer_angry&quot;: {
+            &quot;minecraft:angry&quot;: {
+                &quot;broadcast_anger&quot;: true,
+                &quot;broadcast_range&quot;: 20,
+                &quot;calm_event&quot;: {
+                    &quot;event&quot;: &quot;minecraft:on_calm&quot;,
+                    &quot;target&quot;: &quot;self&quot;
+                },
+                &quot;duration&quot;: 25
+            }
+        },
+</code></pre>
+<p>这一部分定义了愤怒的幻鹿这一属性，其中包含一个冷静下来的事件。“broadcast_angry”即传播愤怒，一只幻鹿被激怒后会连同激怒球形半径为20格的幻鹿。</p>
+<pre><code class="json">        &quot;minecraft:magic_deer_calm&quot;: {
+            &quot;minecraft:on_target_acquired&quot;: {
+                &quot;event&quot;: &quot;minecraft:become_angry&quot;,
+                &quot;target&quot;: &quot;self&quot;
+            }
+        }
+</code></pre>
+<p>这里是定义了幻鹿变愤怒的过程，幻鹿拥有目标后就会进入愤怒状态（“minecraft:on_target_acquired”这个属性没有仔细去wiki上查过，在个人测试的时候幻鹿不能像僵尸猪人一样受到攻击就愤怒，只能当玩家杀死一头幻鹿时，其他幻鹿才会愤怒。<del>但这也是一种新玩法，不是吗？(〃’▽’〃)</del>）</p>
+<p>接下来就是“became_angry”事件以及“on_clam”事件的分析</p>
+<pre><code class="json">        &quot;minecraft:become_angry&quot;: {
+            &quot;add&quot;: {
+                &quot;component_groups&quot;: [
+                    &quot;minecraft:magic_deer_angry&quot;
+                ]
+            },
+            &quot;remove&quot;: {
+                &quot;component_groups&quot;: [
+                    &quot;minecraft:magic_deer_calm&quot;
+                ]
+            }
+        }
+</code></pre>
+<p>事件很简单就是触发后在幻鹿的定义组中增加愤怒的属性移除冷静的属性，冷静事件的处理方式同理，不再进行分析。</p>
+<h1 id="今天重头戏"><a href="#今天重头戏" class="headerlink" title="今天重头戏"></a>今天重头戏</h1><p>今天的重头戏就是自定义生物的动画部分，在建模的时候其实已经把幻鹿的攻击动作做好了，但是在绑定动画的时候出了大问题。</p>
+<p>首先还是先分析一下如何给自定义生物绑定上自己的动画</p>
+<p>以下是幻鹿的资源文件json</p>
+<p><code>{
+    &quot;format_version&quot;: &quot;1.10.0&quot;,
+    &quot;minecraft:client_entity&quot;: {
+        &quot;description&quot;: {
+            &quot;animation_controllers&quot;: [
+                {
+                    &quot;attack_with_head&quot;: &quot;controller.animation.magic_deer.attack&quot;
+                }
+            ],
+            &quot;animations&quot;: {
+                &quot;attack&quot;: &quot;animation.magic_deer.attack&quot;,
+                &quot;baby_transform&quot;: &quot;animation.cow.baby_transform&quot;,
+                &quot;look_at_target&quot;: &quot;animation.common.look_at_target&quot;,
+                &quot;setup&quot;: &quot;animation.cow.setup.v1.0&quot;,
+                &quot;walk&quot;: &quot;animation.quadruped.walk&quot;
+            },
+            &quot;geometry&quot;: {
+                &quot;default&quot;: &quot;geometry.magic_deer&quot;
+            },
+            &quot;identifier&quot;: &quot;fantasy_world:magic_deer&quot;,
+            &quot;materials&quot;: {
+                &quot;default&quot;: &quot;magic_deer&quot;
+            },
+            &quot;render_controllers&quot;: [
+                &quot;controller.render.magic_deer&quot;
+            ],
+            &quot;scripts&quot;: {
+                &quot;animate&quot;: [
+                    &quot;setup&quot;,
+                    {
+                        &quot;walk&quot;: &quot;query.modified_move_speed&quot;
+                    },
+                    &quot;look_at_target&quot;,
+                    {
+                        &quot;baby_transform&quot;: &quot;query.is_baby&quot;
+                    },
+                    &quot;attack&quot;
+                ]
+            },
+            &quot;spawn_egg&quot;: {
+                &quot;base_color&quot;: &quot;#F4A460&quot;,
+                &quot;overlay_color&quot;: &quot;#A0522D&quot;
+            },
+            &quot;textures&quot;: {
+                &quot;default&quot;: &quot;textures/entity/magic_deer&quot;
+            }
+        }
+    }
+}</code></p>
+<p>首先可以看到文件中有出现animation的相关定义</p>
+<pre><code class="json">        &quot;animations&quot;: {
+            &quot;attack&quot;: &quot;animation.magic_deer.attack&quot;,
+            &quot;baby_transform&quot;: &quot;animation.cow.baby_transform&quot;,
+            &quot;look_at_target&quot;: &quot;animation.common.look_at_target&quot;,
+            &quot;setup&quot;: &quot;animation.cow.setup.v1.0&quot;,
+            &quot;walk&quot;: &quot;animation.quadruped.walk&quot;
+        },
+</code></pre>
+<p>其中前面的字段将会在后面提及的动画控制器中应用到，而后面的字段表示是前面字段的真实资源，也就是动画的真实资源，文件是存放在animation文件夹里的。</p>
+<pre><code class="json">        &quot;scripts&quot;: {
+            &quot;animate&quot;: [
+                &quot;setup&quot;,
+                {
+                    &quot;walk&quot;: &quot;query.modified_move_speed&quot;
+                },
+                &quot;look_at_target&quot;,
+                {
+                    &quot;baby_transform&quot;: &quot;query.is_baby&quot;
+                },
+                &quot;attack&quot;
+            ]
+        },
+</code></pre>
+<p>然后这个脚本是显示了将会使用哪些动画，其中的字段就是前面所自定义的缩写字段，其中可以简单的设置某些动画触发的时机，例如baby_transform 利用molang判定生物是baby时才触发。但复杂的触发机制会用到动画控制器，也就是animation_controllers。</p>
+<pre><code class="json">        &quot;animation_controllers&quot;: [
+            {
+                &quot;attack_with_head&quot;: &quot;controller.animation.magic_deer.attack&quot;
+            }
+        ],
+</code></pre>
+<p>这段文本就是将动画引用到控制器中进一步控制，控制器的文本存放在animation_controllers文件夹内。下面是幻鹿攻击的动画控制器：</p>
+<p><code>{
+    &quot;format_version&quot;: &quot;1.10.0&quot;,
+    &quot;animation_controllers&quot;: {
+        &quot;controller.animation.magic_deer.attack&quot;: {
+            &quot;initial_state&quot;: &quot;default&quot;,
+            &quot;states&quot;: {
+                &quot;attacking&quot;: {
+                    &quot;animations&quot;: [
+                        &quot;attack&quot;
+                    ],
+                    &quot;transitions&quot;: [
+                        {
+                            &quot;default&quot;: &quot;variable.attack_time &lt; 0.0&quot;
+                        }
+                    ]
+                },
+                &quot;default&quot;: {
+                    &quot;transitions&quot;: [
+                        {
+                            &quot;attacking&quot;: &quot;variable.attack_time &gt;= 0.0&quot;
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}</code></p>
+<p>我们将有用的部分提取出来</p>
+<pre><code class="json">&quot;animation_controllers&quot;: {
+    &quot;controller.animation.magic_deer.attack&quot;: {
+        &quot;initial_state&quot;: &quot;default&quot;,
+        &quot;states&quot;: {
+            &quot;attacking&quot;: {
+                &quot;animations&quot;: [&quot;attack&quot;],
+                &quot;transitions&quot;: [{&quot;default&quot;: &quot;variable.attack_time &lt; 0.0&quot;}]
+            },
+            &quot;default&quot;: {
+                &quot;transitions&quot;: [{&quot;attacking&quot;: &quot;variable.attack_time &gt;= 0.0&quot;}]
+            }
+        }
+    }
+}
+</code></pre>
+<p>其中”controller.animation.magic_deer.attack”是控制器的唯一标识符，也就是资源文本json中引用的控制器，”initial_state”表示初始状态。”states”用来定义状态，这里定义了两个状态攻击中以及默认状态。攻击状态中带有一个动画，其中的字段就是资源文本json中的动画资源缩写，”transitions”代表转化时机，即动画什么时候播放结束，然后转成什么状态。</p>
+<p>variable.attack_time是一个自定义变量，因为找不到相关的定义所以这个动画是不能执行的！！！在官方的文本也找不到攻击时间相关定义。但是即使我把转换条件更换了发现自定义动画还是用不了？！！！</p>
+<p>然后就是喜闻乐见的事了，<strong>MVP他出现了</strong></p>
+<p><div align="center"><img src="https://img03.mifile.cn/v1/MI_542ED8B1722DC/f6357c7f5c2d0ff39d86b970fe72b5c5.png" alt="bug.png"></div></p>
+<p>经过一整番折磨……我还是搞不懂为啥，经过排查发现是他并没用引用到我放在animation文件夹里的动画，也不知道发生了什么。总之今天的开发过程以及总结就到这了</p>
+<p><del>（看看能不能赶在今天把博客上传完）</del></p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://www.hualigs.cn/image/601989bf0ec61.jpg"></li>
+                <li class="wechat-code"><img src="https://www.hualigs.cn/image/601989bf10e06.jpg"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2021/02/03/build/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://www.hualigs.cn/image/601a63bf70cc0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://www.hualigs.cn/image/601a63bf70cc0.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                博客它终于建好啦</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz",
+        appKey: "WY3j7NGFza5tatqze5Dwv4Cz",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="https://BitterLemonn.github.io" class="profile gravatar"><img src="https://www.hualigs.cn/image/60198f9e2d601.jpg" itemprop="image" alt="BitterLemon" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://BitterLemonn.github.io" itemprop="url" rel="author">BitterLemon</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>初めて会ったの日から　僕の心の全てを奪った</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
