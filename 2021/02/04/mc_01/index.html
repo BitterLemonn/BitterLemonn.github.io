@@ -434,8 +434,7 @@
 <h1 id="今日整理"><a href="#今日整理" class="headerlink" title="今日整理"></a>今日整理</h1><p>　　首先是将之前没完成的辉套装的护腿和靴子部分完成了，并且为他们各自提供了合成配方</p>
 <p><img src="https://img06.mifile.cn/v1/MI_542ED8B1722DC/c976dbbbc17d4e0f082b563e4cff7fe2.png" alt="辉套装背面.jpg"><img src="https://img03.mifile.cn/v1/MI_542ED8B1722DC/8c82b2d2c859b7a04257a9cfae330ea8.png" alt="辉套装正面.jpg" style="zoom:95%;"></p>
 <p>护腿合成配方的json如下：</p>
-<p><code>{
-    &quot;format_version&quot;: &quot;1.12&quot;,
+<pre><code class="json{">    &quot;format_version&quot;: &quot;1.12&quot;,
     &quot;minecraft:recipe_shaped&quot;: {
         &quot;description&quot;: {
             &quot;identifier&quot;: &quot;fantasy_world:splendor_legging&quot;
@@ -464,14 +463,14 @@
             &quot;crafting_table&quot;
         ]
     }
-}</code></p>
+}
+</code></pre>
 <p>　　在编辑配方时需要注意的是“key”值的自定义要与合成配方的”pattern“相对应，最后的”tag“描述的是合成配方支持在何处合成，就算是在背包中的四格合成栏也要把”tag“给写上不然游戏会提示配方没有合成位置并报错，<strong>正确的处理方法是写上”tag“但是内容留空，这样就可以使其在背包内合成（其实就算”tag“标记为”crafting_table“也是可以在背包合成的，只要配方的”pattern“在2*2之内</strong>）</p>
 <p>今天的主要任务是创造了一个新的自定义生物——幻鹿</p>
 <p><img src="https://img07.mifile.cn/v1/MI_542ED8B1722DC/1c9a30c90cf52aeae950a9e3365b5f1a.png" alt="magic_deer.png"></p>
 <p>利用的是原版牛的模型进行更改，建模过程没有啥技术点好分析的，主要是保证骨骼的绑定，因为没有对原版的骨骼进行修改所以主要的骨骼只有 头部 身体 四条腿。幻鹿的脖子其实是绑在了身体上的，旋转头部时脖子是不会跟着旋转的，所以有时候就会出现一些诡异的动作<del>（比如脖子从头里伸出来）</del></p>
 <p>下面是幻鹿的实体行为json：</p>
-<p><code>{
-    &quot;format_version&quot;: &quot;1.12.0&quot;,
+<pre><code class="json{">    &quot;format_version&quot;: &quot;1.12.0&quot;,
     &quot;minecraft:entity&quot;: {
         &quot;component_groups&quot;: {
             &quot;minecraft:magic_deer_adult&quot;: {
@@ -689,7 +688,8 @@
             }
         }
     }
-}</code></p>
+}
+</code></pre>
 <p>主要需要关注的是”component_groups”的部分以及”event”的部分，幻鹿的设计思路是如同僵尸猪人般的中立性型生物，所以从僵尸猪人的行为json中提取出了包含angry属性的内容</p>
 <pre><code class="json">        &quot;minecraft:magic_deer_angry&quot;: {
             &quot;minecraft:angry&quot;: {
@@ -730,8 +730,7 @@
 <h1 id="今天重头戏"><a href="#今天重头戏" class="headerlink" title="今天重头戏"></a>今天重头戏</h1><p>今天的重头戏就是自定义生物的动画部分，在建模的时候其实已经把幻鹿的攻击动作做好了，但是在绑定动画的时候出了大问题。</p>
 <p>首先还是先分析一下如何给自定义生物绑定上自己的动画</p>
 <p>以下是幻鹿的资源文件json</p>
-<p><code>{
-    &quot;format_version&quot;: &quot;1.10.0&quot;,
+<pre><code class="json{">    &quot;format_version&quot;: &quot;1.10.0&quot;,
     &quot;minecraft:client_entity&quot;: {
         &quot;description&quot;: {
             &quot;animation_controllers&quot;: [
@@ -778,7 +777,8 @@
             }
         }
     }
-}</code></p>
+}
+</code></pre>
 <p>首先可以看到文件中有出现animation的相关定义</p>
 <pre><code class="json">        &quot;animations&quot;: {
             &quot;attack&quot;: &quot;animation.magic_deer.attack&quot;,
@@ -811,8 +811,7 @@
         ],
 </code></pre>
 <p>这段文本就是将动画引用到控制器中进一步控制，控制器的文本存放在animation_controllers文件夹内。下面是幻鹿攻击的动画控制器：</p>
-<p><code>{
-    &quot;format_version&quot;: &quot;1.10.0&quot;,
+<pre><code class="json{">    &quot;format_version&quot;: &quot;1.10.0&quot;,
     &quot;animation_controllers&quot;: {
         &quot;controller.animation.magic_deer.attack&quot;: {
             &quot;initial_state&quot;: &quot;default&quot;,
@@ -837,7 +836,8 @@
             }
         }
     }
-}</code></p>
+}
+</code></pre>
 <p>我们将有用的部分提取出来</p>
 <pre><code class="json">&quot;animation_controllers&quot;: {
     &quot;controller.animation.magic_deer.attack&quot;: {
