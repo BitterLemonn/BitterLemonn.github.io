@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/"/>
-  <updated>2021-02-06T16:54:13.395Z</updated>
+  <updated>2021-02-06T16:56:23.765Z</updated>
   <id>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>MC开发者日志#02</title>
     <link href="https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/2021/02/06/mc_02/"/>
     <id>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/2021/02/06/mc_02/</id>
-    <published>2021-02-06T15:59:36.964Z</published>
-    <updated>2021-02-06T16:54:13.395Z</updated>
+    <published>2021-02-06T15:59:56.000Z</published>
+    <updated>2021-02-06T16:56:23.765Z</updated>
     
     <summary type="html">
     
@@ -29,12 +29,13 @@
       
         
         
-          &lt;hr&gt;
-&lt;p&gt;title: ‘MC开发者日志#02’&lt;br&gt;author: BitterLemon&lt;br&gt;avatar: ‘&lt;a href=&quot;https://www.hualigs.cn/image/60198f9e2d601.jpg&amp;#39;&quot;
+          &lt;h1 id=&quot;MC开发者日志-02&quot;&gt;&lt;a href=&quot;#MC开发者日志-02&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
+    
+      <category term="技术" scheme="https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
