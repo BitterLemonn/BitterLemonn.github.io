@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/client/index.html</loc>
+    <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/donate/index.html</loc>
     
     <lastmod>2020-03-16</lastmod>
     
   </url>
   
   <url>
-    <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/donate/index.html</loc>
+    <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/client/index.html</loc>
     
     <lastmod>2020-03-16</lastmod>
     
@@ -72,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/tags/index.html</loc>
-    
-    <lastmod>2020-03-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/rss/index.html</loc>
     
     <lastmod>2020-03-16</lastmod>
@@ -86,7 +79,7 @@
   </url>
   
   <url>
-    <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/video/index.html</loc>
+    <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/tags/index.html</loc>
     
     <lastmod>2020-03-16</lastmod>
     
@@ -99,10 +92,17 @@
     
   </url>
   
+  <url>
+    <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/video/index.html</loc>
+    
+    <lastmod>2020-03-16</lastmod>
+    
+  </url>
+  
 
   <url>
     <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/</loc>
-    <lastmod>2021-02-04</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -112,14 +112,14 @@
   
   <url>
     <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2021-02-04</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://coding-pages-bucket-3520997-8318888-12376-490888-1257815289.cos-website.ap-guangzhou.myqcloud.com/categories/%E9%9A%8F%E6%83%B3/</loc>
-    <lastmod>2021-02-04</lastmod>
+    <lastmod>2021-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
