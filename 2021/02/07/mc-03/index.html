@@ -18,7 +18,7 @@
 	})();
   </script>
   
-  <title itemprop="name">加绒的时间与精神之屋</title>
+  <title itemprop="name">MC开发者日志#03 | 加绒的时间与精神之屋</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -390,236 +390,163 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://www.hualigs.cn/image/601a63bf70cc0.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://www.hualigs.cn/image/601a63bf70cc0.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      MC开发者日志#03</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://BitterLemonn.github.io">
+            <img src="https://www.hualigs.cn/image/60198f9e2d601.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://BitterLemonn.github.io">BitterLemon</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-2-7<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
-  
-  <div class="notice" style="margin-top:60px">
-    <i class="iconfont icon-notification">
-    </i>
-    <div class="notice-content">做不完的工作，熬不完的夜(；д；)</div>
-  </div>
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/theme-sakura/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/startdash/sakura.md.png">
-        </div>
-        <div class="info">
-          <h3>Sakura</h3>
-          <p>本站 hexo 主题</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://space.bilibili.com/97084065" target="_blank">
-        <div class="img">
-          <img src="https://www.hualigs.cn/image/60199154dedd4.jpg">
-        </div>
-        <div class="info">
-          <h3>Bilibili</h3>
-          <p>博主的b站主页</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" target="_blank">
-        <div class="img">
-          <img src="https://www.hualigs.cn/image/60199241eaae3.jpg">
-        </div>
-        <div class="info">
-          <h3>加绒的神秘小盒子</h3>
-          <p>听说能找到一些秘密？</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-</div>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="MC开发者日志-03"><a href="#MC开发者日志-03" class="headerlink" title="MC开发者日志#03"></a>MC开发者日志#03</h1><p>是摸鱼的一天hhhhh</p>
+<h3 id="接上条博客未说完"><a href="#接上条博客未说完" class="headerlink" title="接上条博客未说完"></a>接上条博客未说完</h3><p>上条博客解决了传送门的事，但是发现网易自带的传送门脚本传送过去后坐标竟然不会变，然后地形是一样的（黑人问号.jpg）然后就开始解决传送后的坐标设置问题，因为传送过去后是不会创建传送门的，不像原版地狱传送门那样，于是便在py脚本里找相关的代码，找了半天没找到，然后用了一个十分愚蠢的办法</p>
+<pre><code class="python">    def _dimension_change_finish_server(self, data):
+        player_id = data[&#39;playerId&#39;]
+        dimension_id = data[&#39;toDimensionId&#39;]
+        p = data[&#39;toPos&#39;]
+        comp = serverApi.GetEngineCompFactory().CreateCommand(serverApi.GetLevelId())
+        if dimension_id != 0:
+            # logging.info(&quot;============now player in fantasy&quot;)
+            p = [p[0] * 8, p[1], p[2] * 8]
+            # logging.info(&quot;=============now player pos: {} {} {}&quot;.format(p[0], p[1], p[2]))
+            comp.SetCommand(&quot;/tp {} {} {}&quot;.format(p[0], p[1], p[2]), player_id, False)
+        else:
+            # logging.info(&quot;============now player in over_world&quot;)
+            p = [p[0] / 8, p[1], p[2] / 8]
+            # logging.info(&quot;=============now player pos: {} {} {}&quot;.format(p[0], p[1], p[2]))
+            comp.SetCommand(&quot;/tp {} {} {}&quot;.format(p[0], p[1], p[2]), player_id, False)
+</code></pre>
+<p>当传送维度完成时判断玩家目标维度，若为幻想世界使用comp执行指令将玩家的坐标x与z分别乘上8，若回到主世界则将玩家的坐标x与z分别除以8，这样就完成了幻想世界与主世界的坐标不同步了，而且也能实现主世界1格等于幻想世界8格的规则（与地狱相反）</p>
+<h3 id="今天的新内容"><a href="#今天的新内容" class="headerlink" title="今天的新内容"></a>今天的新内容</h3><p>今天将微光森林的生态完善了一下，创建了新方块<strong>微光草（shimmer_grass）</strong>将原来的<strong>微光草地</strong>的识别id改成了<strong>shimmer_grass_block</strong></p>
+<center><a href="https://bit-images.bj.bcebos.com/bit-new/file/20210208/ljpo.png" target="_blank" rel="noopener"><img src="https://bit-images.bj.bcebos.com/bit-new/file/20210208/ljpo.png" alt="微光草.png"></a></center>
+
+<center>微光草</center>
+
+<p>并且利用了网易的方块定义标签中的may_place_on限定微光草只能放置在泥土类方块上，具体实现代码如下：</p>
+<pre><code class="json">            &quot;netease:may_place_on&quot;: {
+                &quot;block&quot;: [
+                    &quot;minecraft:dirt&quot;,
+                    &quot;minecraft:grass&quot;,
+                    &quot;minecraft:podzol&quot;,
+                    &quot;fantasy_world:grass_block&quot;
+                ],
+                &quot;spawn_resources&quot;: false
+            }
+</code></pre>
+<p>今天还有一个特别重要的是就是为微光草地（shimmer_grass_block）创建掉落物表，就在我苦思冥想如何实现普通挖掘掉落泥土，精准采集掉落微光草地，并花上了大量时间研究战利品表（<a href="https://minecraft-zh.gamepedia.com/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8#.E5.87.BD.E6.95.B0" target="_blank" rel="noopener">这个网址</a>）好不容易理解了逻辑，将逻实现在json中，进到游戏发现只实现了精准采集的方法，普通挖掘竟然不掉落物品。排查了许久突然我发现了↓</p>
+<center><a href="https://bit-images.bj.bcebos.com/bit-new/file/20210208/5uhi.png" target="_blank" rel="noopener"><img src="https://bit-images.bj.bcebos.com/bit-new/file/20210208/5uhi.png" alt="该特性为java版独有.png"></a></center>
+
+<p>直接傻眼！然后进到游戏发现网易竟然内置了（或者是游戏内置了）精准采集本来就会掉落方块本身，直接绕过了战利品表掉落机制，所以战利品表只要填上普通挖掘时掉落的物品就行了（泪崩，我的时间）</p>
+<p>今天大概的工作就是这样了（因为今天是摸鱼的一天hhhh）</p>
+<p>明天可能更新更少内容，因为有别的事情要处理。</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://www.hualigs.cn/image/601989bf0ec61.jpg"></li>
+                <li class="wechat-code"><img src="https://www.hualigs.cn/image/601989bf10e06.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2021/02/06/mc_02/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://www.hualigs.cn/image/601a63bf70cc0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://www.hualigs.cn/image/601a63bf70cc0.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                MC开发者日志#02</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz",
+        appKey: "WY3j7NGFza5tatqze5Dwv4Cz",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2021/02/07/mc-03/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://www.hualigs.cn/image/601a63bf70cc0.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-2-7 22:49</div>
-      <a href="/2021/02/07/mc-03/" class="post-title">
-        <h3>MC开发者日志#03</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/02/07/mc-03/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="https://BitterLemonn.github.io" class="profile gravatar"><img src="https://www.hualigs.cn/image/60198f9e2d601.jpg" itemprop="image" alt="BitterLemon" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://BitterLemonn.github.io" itemprop="url" rel="author">BitterLemon</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/02/06/mc_02/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://www.hualigs.cn/image/601a63bf70cc0.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-2-6 23:59</div>
-      <a href="/2021/02/06/mc_02/" class="post-title">
-        <h3>MC开发者日志#02</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/02/06/mc_02/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/02/04/mc_01/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://www.hualigs.cn/image/601a63bf70cc0.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-2-4 23:56</div>
-      <a href="/2021/02/04/mc_01/" class="post-title">
-        <h3>MC开发者日志#01</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>大家小年快乐！</p>
-        <div class="post-bottom">
-          <a href="/2021/02/04/mc_01/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/02/03/build/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://www.hualigs.cn/image/601a63bf70cc0.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-2-3 12:30</div>
-      <a href="/2021/02/03/build/" class="post-title">
-        <h3>博客它终于建好啦</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/随想/">随想</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/02/03/build/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!--  -->
-  </div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>初めて会ったの日から　僕の心の全てを奪った</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
