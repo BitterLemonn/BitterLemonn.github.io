@@ -461,7 +461,7 @@
                 &quot;spawn_resources&quot;: false
             }
 </code></pre>
-<p>今天还有一个特别重要的是就是为微光草地（shimmer_grass_block）创建掉落物表，就在我苦思冥想如何实现普通挖掘掉落泥土，精准采集掉落微光草地，并花上了大量时间研究战利品表（<a href="https://minecraft-zh.gamepedia.com/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8#.E5.87.BD.E6.95.B0" target="_blank" rel="noopener">这个网址</a>）好不容易理解了逻辑，将逻实现在json中，进到游戏发现只实现了精准采集的方法，普通挖掘竟然不掉落物品。排查了许久突然我发现了↓</p>
+<p>今天还有一个特别重要的是就是为微光草地（shimmer_grass_block）创建掉落物表，就在我苦思冥想如何实现普通挖掘掉落泥土，精准采集掉落微光草地，并花上了大量时间研究战利品表（<a href="https://minecraft-zh.gamepedia.com/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8#.E5.87.BD.E6.95.B0" target="_blank" rel="noopener">这个网址</a>）好不容易理解了逻辑，将逻辑实现在json中，进到游戏发现只实现了精准采集的方法，普通挖掘竟然不掉落物品。排查了许久突然我发现了↓</p>
 <center><a href="https://bit-images.bj.bcebos.com/bit-new/file/20210208/5uhi.png" target="_blank" rel="noopener"><img src="https://bit-images.bj.bcebos.com/bit-new/file/20210208/5uhi.png" alt="该特性为java版独有.png"></a></center>
 
 <p>直接傻眼！然后进到游戏发现网易竟然内置了（或者是游戏内置了）精准采集本来就会掉落方块本身，直接绕过了战利品表掉落机制，所以战利品表只要填上普通挖掘时掉落的物品就行了（泪崩，我的时间）</p>
