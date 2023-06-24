@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+  
+  <title itemprop="name">MC开发者日志#01 | 加绒的时间与精神之屋</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "落ち桜のBitterLemon";
+  mashiro_option.author_name = "BitterLemon";
+  mashiro_option.site_url = "https://bitterlemonn.github.io/";
+  mashiro_option.v_appId = "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz";
+  mashiro_option.v_appKey = "WY3j7NGFza5tatqze5Dwv4Cz";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "/images/cover/sagiri1.webp,/images/cover/sagiri2.webp,/images/cover/sagiri3.png,/images/cover/sagiri4.jpg,/images/cover/pikachu1.jpg,/images/cover/pikachu2.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <!-- 樱花特效 -->
+  
+  <meta name="baidu-site-verification" content="code-NrZvN3sXjK" />
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a target="_blank" rel="noopener" href="https://bitterlemonn.github.io/">
+          <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>初めて会ったの日から　僕の心の全てを奪った</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/BitterLemonn" target="_blank" class="social-github" title="Github">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" target="_blank" class="social-github" title="Popi">
+                    <img src="/images/icon/popi.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://music.163.com/#/user/home?id=424261998" target="_blank" class="social-github" title="CloudMusic">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/ku-ning-98" target="_blank" class="social-github" title="ZhiHu">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ty0mOzsqPRAjKiIgIQ8_PmEsICI" target="_blank" class="social-github" title="Email">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">落ち桜の</span>
+            <span class="shironeko">BitterLemon</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131411476.jpeg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131411476.jpeg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      MC开发者日志#01</h1>
+      <p class="entry-census">
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+          </a>
+        </span>
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">BitterLemon</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-2-4<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="MC开发者日志-01"><a href="#MC开发者日志-01" class="headerlink" title="MC开发者日志#01"></a>MC开发者日志#01</h1><p>　　早上起床第一件事马上投入今天的开发时间，今天又是神清气爽的一天呢。又会有什么样的bug等着我呢？让我们公布一下吧，今日最佳：<br><font size=15 color = blad align=center>MVP</font></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/f6357c7f5c2d0ff39d86b970fe72b5c5.png"/></div>
+
+
+
+<p>今日MVP：耗时超过8小时，至今未解决(#｀皿´)</p>
+<h1 id="今日整理"><a href="#今日整理" class="headerlink" title="今日整理"></a>今日整理</h1><p>　　首先是将之前没完成的辉套装的护腿和靴子部分完成了，并且为他们各自提供了合成配方</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/c976dbbbc17d4e0f082b563e4cff7fe2.png" alt="辉套装背面.jpg"/><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/8c82b2d2c859b7a04257a9cfae330ea8.png" alt="辉套装正面.jpg" style="zoom:95%;" /></center>
+
+<p>护腿合成配方的json如下：</p>
+<pre><code class="json">&#123;
+    &quot;format_version&quot;: &quot;1.12&quot;,
+    &quot;minecraft:recipe_shaped&quot;: &#123;
+        &quot;description&quot;: &#123;
+            &quot;identifier&quot;: &quot;fantasy_world:splendor_legging&quot;
+        &#125;,
+        &quot;key&quot;: &#123;
+            &quot;X&quot;: &#123;
+                &quot;data&quot;: -1,
+                &quot;item&quot;: &quot;fantasy_world:moon_dust&quot;
+            &#125;,
+            &quot;O&quot;: &#123;
+                &quot;data&quot;: -1,
+                &quot;item&quot;: &quot;fantasy_world:star_ingot&quot;
+            &#125;
+        &#125;,
+        &quot;pattern&quot;: [
+            &quot;OOO&quot;,
+            &quot;X X&quot;,
+            &quot;O O&quot;
+        ],
+        &quot;result&quot;: &#123;
+            &quot;count&quot;: 1,
+            &quot;data&quot;: 0,
+            &quot;item&quot;: &quot;fantasy_world:splendor_legging&quot;
+        &#125;,
+        &quot;tags&quot;: [
+            &quot;crafting_table&quot;
+        ]
+    &#125;
+&#125;
+</code></pre>
+<p>　　在编辑配方时需要注意的是“key”值的自定义要与合成配方的”pattern“相对应，最后的”tag“描述的是合成配方支持在何处合成，就算是在背包中的四格合成栏也要把”tag“给写上不然游戏会提示配方没有合成位置并报错，<strong>正确的处理方法是写上”tag“但是内容留空，这样就可以使其在背包内合成（其实就算”tag“标记为”crafting_table“也是可以在背包合成的，只要配方的”pattern“在2*2之内</strong>）</p>
+<p>今天的主要任务是创造了一个新的自定义生物——幻鹿</p>
+<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/1c9a30c90cf52aeae950a9e3365b5f1a.png" alt="magic_deer.png"></p>
+<p>利用的是原版牛的模型进行更改，建模过程没有啥技术点好分析的，主要是保证骨骼的绑定，因为没有对原版的骨骼进行修改所以主要的骨骼只有 头部 身体 四条腿。幻鹿的脖子其实是绑在了身体上的，旋转头部时脖子是不会跟着旋转的，所以有时候就会出现一些诡异的动作<del>（比如脖子从头里伸出来）</del></p>
+<p>下面是幻鹿的实体行为json：</p>
+<pre><code class="json">&#123;
+    &quot;format_version&quot;: &quot;1.12.0&quot;,
+    &quot;minecraft:entity&quot;: &#123;
+        &quot;component_groups&quot;: &#123;
+            &quot;minecraft:magic_deer_adult&quot;: &#123;
+                &quot;minecraft:experience_reward&quot;: &#123;
+                    &quot;on_death&quot;: &quot;query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0&quot;
+                &#125;
+            &#125;,
+            &quot;minecraft:magic_deer_angry&quot;: &#123;
+                &quot;minecraft:angry&quot;: &#123;
+                    &quot;broadcast_anger&quot;: true,
+                    &quot;broadcast_range&quot;: 20,
+                    &quot;calm_event&quot;: &#123;
+                        &quot;event&quot;: &quot;minecraft:on_calm&quot;,
+                        &quot;target&quot;: &quot;self&quot;
+                    &#125;,
+                    &quot;duration&quot;: 25
+                &#125;
+            &#125;,
+            &quot;minecraft:magic_deer_baby&quot;: &#123;
+                &quot;minecraft:experience_reward&quot;: &#123;
+                    &quot;on_death&quot;: &quot;query.last_hit_by_player ? 2 + (query.equipment_count * Math.Random(1,3)) : 0&quot;
+                &#125;,
+                &quot;minecraft:is_baby&quot;: &#123;
+                &#125;,
+                &quot;minecraft:scale&quot;: &#123;
+                    &quot;value&quot;: 0.5
+                &#125;
+            &#125;,
+            &quot;minecraft:magic_deer_calm&quot;: &#123;
+                &quot;minecraft:on_target_acquired&quot;: &#123;
+                    &quot;event&quot;: &quot;minecraft:become_angry&quot;,
+                    &quot;target&quot;: &quot;self&quot;
+                &#125;
+            &#125;
+        &#125;,
+        &quot;components&quot;: &#123;
+            &quot;minecraft:attack&quot;: &#123;
+                &quot;damage&quot;: 3.0
+            &#125;,
+            &quot;minecraft:behavior.look_at_player&quot;: &#123;
+                &quot;look_distance&quot;: 8,
+                &quot;priority&quot;: 6
+            &#125;,
+            &quot;minecraft:behavior.melee_attack&quot;: &#123;
+                &quot;priority&quot;: 1,
+                &quot;reach_multiplier&quot;: 2.0,
+                &quot;speed_multiplier&quot;: 1.0,
+                &quot;track_target&quot;: true
+            &#125;,
+            &quot;minecraft:behavior.nearest_attackable_target&quot;: &#123;
+                &quot;attack_interval&quot;: 5,
+                &quot;entity_types&quot;: [
+                    &#123;
+                        &quot;filters&quot;: &#123;
+                            &quot;any_of&quot;: [
+                                &#123;
+                                    &quot;subject&quot;: &quot;other&quot;,
+                                    &quot;test&quot;: &quot;is_family&quot;,
+                                    &quot;value&quot;: &quot;zombie&quot;
+                                &#125;
+                            ]
+                        &#125;,
+                        &quot;max_dist&quot;: 8
+                    &#125;
+                ],
+                &quot;must_see&quot;: true,
+                &quot;priority&quot;: 0,
+                &quot;reselect_targets&quot;: true
+            &#125;,
+            &quot;minecraft:behavior.random_stroll&quot;: &#123;
+                &quot;priority&quot;: 8,
+                &quot;speed_multiplier&quot;: 0.8
+            &#125;,
+            &quot;minecraft:can_climb&quot;: &#123;
+            &#125;,
+            &quot;minecraft:collision_box&quot;: &#123;
+                &quot;height&quot;: 1.65,
+                &quot;width&quot;: 1.0
+            &#125;,
+            &quot;minecraft:health&quot;: &#123;
+                &quot;max&quot;: 30.0,
+                &quot;value&quot;: 30.0
+            &#125;,
+            &quot;minecraft:jump.static&quot;: &#123;
+            &#125;,
+            &quot;minecraft:loot&quot;: &#123;
+                &quot;table&quot;: &quot;loot_tables/netease/kill_magic_deer.json&quot;
+            &#125;,
+            &quot;minecraft:movement&quot;: &#123;
+                &quot;value&quot;: 0.4
+            &#125;,
+            &quot;minecraft:movement.basic&quot;: &#123;
+                &quot;max_turn&quot;: 5
+            &#125;,
+            &quot;minecraft:nameable&quot;: &#123;
+            &#125;,
+            &quot;minecraft:navigation.walk&quot;: &#123;
+                &quot;avoid_water&quot;: true,
+                &quot;can_open_doors&quot;: false,
+                &quot;can_pass_doors&quot;: true,
+                &quot;can_path_over_water&quot;: true,
+                &quot;can_walk&quot;: true,
+                &quot;is_amphibious&quot;: true
+            &#125;,
+            &quot;minecraft:physics&quot;: &#123;
+            &#125;,
+            &quot;minecraft:pushable&quot;: &#123;
+                &quot;is_pushable&quot;: true,
+                &quot;is_pushable_by_piston&quot;: true
+            &#125;,
+            &quot;minecraft:scale&quot;: &#123;
+                &quot;value&quot;: 1
+            &#125;,
+            &quot;minecraft:storyline&quot;: &#123;
+                &quot;name&quot;: &quot;&quot;
+            &#125;,
+            &quot;minecraft:type_family&quot;: &#123;
+                &quot;family&quot;: [
+                    &quot;mob&quot;,
+                    &quot;deer&quot;
+                ]
+            &#125;,
+            &quot;minecraft:underwater_movement&quot;: &#123;
+                &quot;value&quot;: 0.25
+            &#125;
+        &#125;,
+        &quot;description&quot;: &#123;
+            &quot;identifier&quot;: &quot;fantasy_world:magic_deer&quot;,
+            &quot;is_experimental&quot;: false,
+            &quot;is_spawnable&quot;: true,
+            &quot;is_summonable&quot;: true,
+            &quot;runtime_identifier&quot;: &quot;fantasy_world:magic_deer&quot;
+        &#125;,
+        &quot;events&quot;: &#123;
+            &quot;minecraft:become_angry&quot;: &#123;
+                &quot;add&quot;: &#123;
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_angry&quot;
+                    ]
+                &#125;,
+                &quot;remove&quot;: &#123;
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_calm&quot;
+                    ]
+                &#125;
+            &#125;,
+            &quot;minecraft:entity_spawned&quot;: &#123;
+                &quot;randomize&quot;: [
+                    &#123;
+                        &quot;add&quot;: &#123;
+                            &quot;component_groups&quot;: [
+                                &quot;minecraft:magic_deer_adult&quot;,
+                                &quot;minecraft:magic_deer_calm&quot;
+                            ]
+                        &#125;,
+                        &quot;remove&quot;: &#123;
+                        &#125;,
+                        &quot;weight&quot;: 95
+                    &#125;,
+                    &#123;
+                        &quot;add&quot;: &#123;
+                            &quot;component_groups&quot;: [
+                                &quot;minecraft:magic_deer_baby&quot;,
+                                &quot;minecraft:magic_deer_calm&quot;
+                            ]
+                        &#125;,
+                        &quot;remove&quot;: &#123;
+                        &#125;,
+                        &quot;weight&quot;: 5
+                    &#125;
+                ]
+            &#125;,
+            &quot;minecraft:entity_transformed&quot;: &#123;
+                &quot;sequence&quot;: [
+                    &#123;
+                        &quot;add&quot;: &#123;
+                            &quot;component_groups&quot;: [
+                                &quot;minecraft:magic_deer_baby&quot;,
+                                &quot;minecraft:magic_deer_calm&quot;
+                            ]
+                        &#125;,
+                        &quot;filters&quot;: &#123;
+                            &quot;subject&quot;: &quot;other&quot;,
+                            &quot;test&quot;: &quot;has_component&quot;,
+                            &quot;value&quot;: &quot;minecraft:is_baby&quot;
+                        &#125;
+                    &#125;,
+                    &#123;
+                        &quot;add&quot;: &#123;
+                            &quot;component_groups&quot;: [
+                                &quot;minecraft:magic_deer_adult&quot;,
+                                &quot;minecraft:magic_deer_calm&quot;
+                            ]
+                        &#125;,
+                        &quot;filters&quot;: &#123;
+                            &quot;operator&quot;: &quot;!=&quot;,
+                            &quot;subject&quot;: &quot;other&quot;,
+                            &quot;test&quot;: &quot;has_component&quot;,
+                            &quot;value&quot;: &quot;minecraft:is_baby&quot;
+                        &#125;
+                    &#125;
+                ]
+            &#125;,
+            &quot;minecraft:on_calm&quot;: &#123;
+                &quot;add&quot;: &#123;
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_calm&quot;
+                    ]
+                &#125;,
+                &quot;remove&quot;: &#123;
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_angry&quot;
+                    ]
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>主要需要关注的是”component_groups”的部分以及”event”的部分，幻鹿的设计思路是如同僵尸猪人般的中立性型生物，所以从僵尸猪人的行为json中提取出了包含angry属性的内容</p>
+<pre><code class="json">        &quot;minecraft:magic_deer_angry&quot;: &#123;
+            &quot;minecraft:angry&quot;: &#123;
+                &quot;broadcast_anger&quot;: true,
+                &quot;broadcast_range&quot;: 20,
+                &quot;calm_event&quot;: &#123;
+                    &quot;event&quot;: &quot;minecraft:on_calm&quot;,
+                    &quot;target&quot;: &quot;self&quot;
+                &#125;,
+                &quot;duration&quot;: 25
+            &#125;
+        &#125;,
+</code></pre>
+<p>这一部分定义了愤怒的幻鹿这一属性，其中包含一个冷静下来的事件。“broadcast_angry”即传播愤怒，一只幻鹿被激怒后会连同激怒球形半径为20格的幻鹿。</p>
+<pre><code class="json">        &quot;minecraft:magic_deer_calm&quot;: &#123;
+            &quot;minecraft:on_target_acquired&quot;: &#123;
+                &quot;event&quot;: &quot;minecraft:become_angry&quot;,
+                &quot;target&quot;: &quot;self&quot;
+            &#125;
+        &#125;
+</code></pre>
+<p>这里是定义了幻鹿变愤怒的过程，幻鹿拥有目标后就会进入愤怒状态（“minecraft:on_target_acquired”这个属性没有仔细去wiki上查过，在个人测试的时候幻鹿不能像僵尸猪人一样受到攻击就愤怒，只能当玩家杀死一头幻鹿时，其他幻鹿才会愤怒。<del>但这也是一种新玩法，不是吗？(〃’▽’〃)</del>）</p>
+<p>接下来就是“became_angry”事件以及“on_clam”事件的分析</p>
+<pre><code class="json">        &quot;minecraft:become_angry&quot;: &#123;
+            &quot;add&quot;: &#123;
+                &quot;component_groups&quot;: [
+                    &quot;minecraft:magic_deer_angry&quot;
+                ]
+            &#125;,
+            &quot;remove&quot;: &#123;
+                &quot;component_groups&quot;: [
+                    &quot;minecraft:magic_deer_calm&quot;
+                ]
+            &#125;
+        &#125;
+</code></pre>
+<p>事件很简单就是触发后在幻鹿的定义组中增加愤怒的属性移除冷静的属性，冷静事件的处理方式同理，不再进行分析。</p>
+<h1 id="今天重头戏"><a href="#今天重头戏" class="headerlink" title="今天重头戏"></a>今天重头戏</h1><p>今天的重头戏就是自定义生物的动画部分，在建模的时候其实已经把幻鹿的攻击动作做好了，但是在绑定动画的时候出了大问题。</p>
+<p>首先还是先分析一下如何给自定义生物绑定上自己的动画</p>
+<p>以下是幻鹿的资源文件json</p>
+<pre><code class="json&#123;">    &quot;format_version&quot;: &quot;1.10.0&quot;,
+    &quot;minecraft:client_entity&quot;: &#123;
+        &quot;description&quot;: &#123;
+            &quot;animation_controllers&quot;: [
+                &#123;
+                    &quot;attack_with_head&quot;: &quot;controller.animation.magic_deer.attack&quot;
+                &#125;
+            ],
+            &quot;animations&quot;: &#123;
+                &quot;attack&quot;: &quot;animation.magic_deer.attack&quot;,
+                &quot;baby_transform&quot;: &quot;animation.cow.baby_transform&quot;,
+                &quot;look_at_target&quot;: &quot;animation.common.look_at_target&quot;,
+                &quot;setup&quot;: &quot;animation.cow.setup.v1.0&quot;,
+                &quot;walk&quot;: &quot;animation.quadruped.walk&quot;
+            &#125;,
+            &quot;geometry&quot;: &#123;
+                &quot;default&quot;: &quot;geometry.magic_deer&quot;
+            &#125;,
+            &quot;identifier&quot;: &quot;fantasy_world:magic_deer&quot;,
+            &quot;materials&quot;: &#123;
+                &quot;default&quot;: &quot;magic_deer&quot;
+            &#125;,
+            &quot;render_controllers&quot;: [
+                &quot;controller.render.magic_deer&quot;
+            ],
+            &quot;scripts&quot;: &#123;
+                &quot;animate&quot;: [
+                    &quot;setup&quot;,
+                    &#123;
+                        &quot;walk&quot;: &quot;query.modified_move_speed&quot;
+                    &#125;,
+                    &quot;look_at_target&quot;,
+                    &#123;
+                        &quot;baby_transform&quot;: &quot;query.is_baby&quot;
+                    &#125;,
+                    &quot;attack&quot;
+                ]
+            &#125;,
+            &quot;spawn_egg&quot;: &#123;
+                &quot;base_color&quot;: &quot;#F4A460&quot;,
+                &quot;overlay_color&quot;: &quot;#A0522D&quot;
+            &#125;,
+            &quot;textures&quot;: &#123;
+                &quot;default&quot;: &quot;textures/entity/magic_deer&quot;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>首先可以看到文件中有出现animation的相关定义</p>
+<pre><code class="json">        &quot;animations&quot;: &#123;
+            &quot;attack&quot;: &quot;animation.magic_deer.attack&quot;,
+            &quot;baby_transform&quot;: &quot;animation.cow.baby_transform&quot;,
+            &quot;look_at_target&quot;: &quot;animation.common.look_at_target&quot;,
+            &quot;setup&quot;: &quot;animation.cow.setup.v1.0&quot;,
+            &quot;walk&quot;: &quot;animation.quadruped.walk&quot;
+        &#125;
+</code></pre>
+<p>其中前面的字段将会在后面提及的动画控制器中应用到，而后面的字段表示是前面字段的真实资源，也就是动画的真实资源，文件是存放在animation文件夹里的。</p>
+<pre><code class="json">        &quot;scripts&quot;: &#123;
+            &quot;animate&quot;: [
+                &quot;setup&quot;,
+                &#123;
+                    &quot;walk&quot;: &quot;query.modified_move_speed&quot;
+                &#125;,
+                &quot;look_at_target&quot;,
+                &#123;
+                    &quot;baby_transform&quot;: &quot;query.is_baby&quot;
+                &#125;,
+                &quot;attack&quot;
+            ]
+        &#125;,
+</code></pre>
+<p>然后这个脚本是显示了将会使用哪些动画，其中的字段就是前面所自定义的缩写字段，其中可以简单的设置某些动画触发的时机，例如baby_transform 利用molang判定生物是baby时才触发。但复杂的触发机制会用到动画控制器，也就是animation_controllers。</p>
+<pre><code class="json">        &quot;animation_controllers&quot;: [
+            &#123;
+                &quot;attack_with_head&quot;: &quot;controller.animation.magic_deer.attack&quot;
+            &#125;
+        ],
+</code></pre>
+<p>这段文本就是将动画引用到控制器中进一步控制，控制器的文本存放在animation_controllers文件夹内。下面是幻鹿攻击的动画控制器：</p>
+<pre><code class="json&#123;">    &quot;format_version&quot;: &quot;1.10.0&quot;,
+    &quot;animation_controllers&quot;: &#123;
+        &quot;controller.animation.magic_deer.attack&quot;: &#123;
+            &quot;initial_state&quot;: &quot;default&quot;,
+            &quot;states&quot;: &#123;
+                &quot;attacking&quot;: &#123;
+                    &quot;animations&quot;: [
+                        &quot;attack&quot;
+                    ],
+                    &quot;transitions&quot;: [
+                        &#123;
+                            &quot;default&quot;: &quot;variable.attack_time &lt; 0.0&quot;
+                        &#125;
+                    ]
+                &#125;,
+                &quot;default&quot;: &#123;
+                    &quot;transitions&quot;: [
+                        &#123;
+                            &quot;attacking&quot;: &quot;variable.attack_time &gt;= 0.0&quot;
+                        &#125;
+                    ]
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>我们将有用的部分提取出来</p>
+<pre><code class="json">&quot;animation_controllers&quot;: &#123;
+    &quot;controller.animation.magic_deer.attack&quot;: &#123;
+        &quot;initial_state&quot;: &quot;default&quot;,
+        &quot;states&quot;: &#123;
+            &quot;attacking&quot;: &#123;
+                &quot;animations&quot;: [&quot;attack&quot;],
+                &quot;transitions&quot;: [&#123;&quot;default&quot;: &quot;variable.attack_time &lt; 0.0&quot;&#125;]
+            &#125;,
+            &quot;default&quot;: &#123;
+                &quot;transitions&quot;: [&#123;&quot;attacking&quot;: &quot;variable.attack_time &gt;= 0.0&quot;&#125;]
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>其中”controller.animation.magic_deer.attack”是控制器的唯一标识符，也就是资源文本json中引用的控制器，”initial_state”表示初始状态。”states”用来定义状态，这里定义了两个状态攻击中以及默认状态。攻击状态中带有一个动画，其中的字段就是资源文本json中的动画资源缩写，”transitions”代表转化时机，即动画什么时候播放结束，然后转成什么状态。</p>
+<p>variable.attack_time是一个自定义变量，因为找不到相关的定义所以这个动画是不能执行的！！！在官方的文本也找不到攻击时间相关定义。但是即使我把转换条件更换了发现自定义动画还是用不了？！！！</p>
+<p>然后就是喜闻乐见的事了，<strong>MVP他出现了</strong></p>
+<div align=center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/f6357c7f5c2d0ff39d86b970fe72b5c5.png"/></div>
+
+
+
+<p>经过一整番折磨……我还是搞不懂为啥，经过排查发现是他并没用引用到我放在animation文件夹里的动画，也不知道发生了什么。总之今天的开发过程以及总结就到这了</p>
+<p><del>（看看能不能赶在今天把博客上传完）</del></p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/2241d713a006d44c.jpg"></li>
+                <li class="wechat-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/85440fc204a65735.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/02/06/mc_02/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131411476.jpeg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131411476.jpeg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                MC开发者日志#02</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/02/03/build/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131411476.jpeg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131411476.jpeg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                博客它终于建好啦</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz",
+        appKey: "WY3j7NGFza5tatqze5Dwv4Cz",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg" itemprop="image" alt="BitterLemon" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a target="_blank" href="https://BitterLemonn.github.io" itemprop="url" rel="author noopener">BitterLemon</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>初めて会ったの日から　僕の心の全てを奪った</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 BitterLemon<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2021</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">落ち桜のBitterLemon</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/BitterLemonn" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" class="fa fa-Popi" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2166294272"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

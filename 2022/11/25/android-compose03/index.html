@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+  
+  <title itemprop="name">Android Compose 03 基础Layout | 加绒的时间与精神之屋</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "落ち桜のBitterLemon";
+  mashiro_option.author_name = "BitterLemon";
+  mashiro_option.site_url = "https://bitterlemonn.github.io/";
+  mashiro_option.v_appId = "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz";
+  mashiro_option.v_appKey = "WY3j7NGFza5tatqze5Dwv4Cz";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "/images/cover/sagiri1.webp,/images/cover/sagiri2.webp,/images/cover/sagiri3.png,/images/cover/sagiri4.jpg,/images/cover/pikachu1.jpg,/images/cover/pikachu2.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <!-- 樱花特效 -->
+  
+  <meta name="baidu-site-verification" content="code-NrZvN3sXjK" />
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a target="_blank" rel="noopener" href="https://bitterlemonn.github.io/">
+          <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>初めて会ったの日から　僕の心の全てを奪った</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/BitterLemonn" target="_blank" class="social-github" title="Github">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" target="_blank" class="social-github" title="Popi">
+                    <img src="/images/icon/popi.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://music.163.com/#/user/home?id=424261998" target="_blank" class="social-github" title="CloudMusic">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/ku-ning-98" target="_blank" class="social-github" title="ZhiHu">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ty0mOzsqPRAjKiIgIQ8_PmEsICI" target="_blank" class="social-github" title="Email">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">落ち桜の</span>
+            <span class="shironeko">BitterLemon</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202208111659518.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202208111659518.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Android Compose 03 基础Layout</h1>
+      <p class="entry-census">
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202208111655997.png">
+          </a>
+        </span>
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">BitterLemon</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2022-11-25<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="Android-Compose-03-基础Layout"><a href="#Android-Compose-03-基础Layout" class="headerlink" title="Android Compose 03 基础Layout"></a>Android Compose 03 基础Layout</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　学会基本控件之后，马上着手搭建自己的Compose应用都会遇到下面的情况，为什么控件都全部叠起来了。这时是不是想起了界面构建的另一主要元素。</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211181818499.png" style="zoom:67%;"/></center>
+
+<p>　　Android中界面构建除了组件还有一个最重要的东西——布局，组件实现功能，布局实现界面。布局也是构建前端界面重要的组成部分。在传统的View中，Android提供了许多layout来实现不同的布局，不乏有许多好用的layout例如constrainLayout等。在Compose中，目前稳定的只有一些比较基本的布局，虽然也有类似于constrainLayout的布局但是目前还只是一个测试版，所以使用Compose进行布局的时候需要对基础的布局有更深入的理解。</p>
+<h2 id="基本布局介绍"><a href="#基本布局介绍" class="headerlink" title="基本布局介绍"></a>基本布局介绍</h2><h4 id="箱子Box-帧布局-x2F-FrameLayout"><a href="#箱子Box-帧布局-x2F-FrameLayout" class="headerlink" title="箱子Box(帧布局&#x2F;FrameLayout)"></a>箱子Box(帧布局&#x2F;FrameLayout)</h4><p>　　FrameLayout作为在View里面也是最经典的布局之一，<strong>以左上角为起点，具有堆栈性质越往后的布局，最后添加的控件显示在最上层</strong>。在Compose中可以使用Box完成相同的功能。如下是Box布局最简单的用法：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211211654672.png" style="zoom:67%;"></center>
+
+<p>　　但是这不是和没有使用布局的情况一模一样吗？在Compose中如果不使用布局文件时默认是一个布满屏幕的Box布局，所以如果单纯使用Box布局的话是与不使用布局是一致的。</p>
+<h4 id="行布局Column-纵向线性布局-x2F-LinearLayout"><a href="#行布局Column-纵向线性布局-x2F-LinearLayout" class="headerlink" title="行布局Column(纵向线性布局&#x2F;LinearLayout)"></a>行布局Column(纵向线性布局&#x2F;LinearLayout)</h4><p>　　线性布局也是View中比较常用的一种布局，可以实现控件按照水平或者垂直的顺序显示。在Compose中将线性布局的方向分为了两个布局控件。<strong>行布局（Column）控件可以使被包含的控件每一个单独一行显示</strong>，即纵向排列，如下是Column布局最简单的用法：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211211724390.png"></center>
+
+<p>　　Column布局也可以两个参数<strong>verticalArrangement和horizontalAlignment</strong>，这两个参数分别定义了Column布局在<strong>纵向的布局方式以及在横向的对齐方式</strong>，例如下图实现了一个<strong>控件间等距(无边距)，水平居中</strong>的纵向线性布局：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211211757008.png" style="zoom:67%;"></center>
+
+<ul>
+<li>其中<strong>verticalArrangement</strong>参数可以传入以下值：<ul>
+<li>Arrangement.Top                      对齐顶部</li>
+<li>Arrangement.Center                 居中对齐</li>
+<li>Arrangement.Bottom                对齐底部</li>
+<li>Arrangement.SpaceBetween   控件间等距**(无边距)**</li>
+<li>Arrangement.SpaceAround     控件间等距**(边距为控件间间距一半)**</li>
+<li>Arrangement.SpaceEvenly       控件间等距**(边距与控件间间距一致)**</li>
+</ul>
+</li>
+<li>其中<strong>horizontalAlignment</strong>参数可传入以下值：<ul>
+<li>Alignment.Start                          对齐头部</li>
+<li>Alignment.End                            对齐尾部</li>
+<li>Alignment.CenterHorizontally 水平居中</li>
+</ul>
+</li>
+</ul>
+<h4 id="列布局Row（横向线性布局-x2F-LinearLayout）"><a href="#列布局Row（横向线性布局-x2F-LinearLayout）" class="headerlink" title="列布局Row（横向线性布局&#x2F;LinearLayout）"></a>列布局Row（横向线性布局&#x2F;LinearLayout）</h4><p>　　在Compose中横向布局是使用Row布局控件实现的，与Column布局类似，Row布局可以使包含在其中的控件以每个一列的方式显示即横向显示。如下是Row布局最简单的用法：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211211734654.png" style="zoom:67%;"></center>
+
+<p>　　与Column布局类似的Row布局也可以传入两个参数<strong>verticalAlignment和horizontalArrangement</strong>分别控制<strong>纵向的对齐方式以及横向的布局方式</strong>，下图实现了一个垂直居中，控件间等距(边距为控件间间距一半)的横向线性布局。</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211211815373.png" style="zoom:67%;"></center>
+
+<p>　　与Column布局类似可传入的值相同，唯一不同的是在<strong>verticalAlignment中居中使用的是Alignment.CenterVertically（垂直居中）</strong></p>
+<h2 id="辅助布局控件以及Modifier的使用"><a href="#辅助布局控件以及Modifier的使用" class="headerlink" title="辅助布局控件以及Modifier的使用"></a>辅助布局控件以及Modifier的使用</h2><h3 id="辅助布局控件"><a href="#辅助布局控件" class="headerlink" title="辅助布局控件"></a>辅助布局控件</h3><h4 id="间隔Spacer"><a href="#间隔Spacer" class="headerlink" title="间隔Spacer"></a>间隔Spacer</h4><p>　　Compose中不仅仅可以使用传参的方式调整控件间的间距，如果需要单独控制两个控件之间的间距时可以使用Spacer控件自由的控制间隔的大小。Spacer最简单的用法如下，例如实现一个间隔不相同的纵向线性列表。</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211211748989.png" style="zoom:67%;"/></center>
+
+<h4 id="分割线Divider"><a href="#分割线Divider" class="headerlink" title="分割线Divider"></a>分割线Divider</h4><p>　　Compose提供了一个分割线的控件<strong>Divider</strong>，这个控件可以快速的满足需要分割线的情况。Divider控件还可以传入两个参数<strong>color和startIndent</strong>分别控制<strong>分割线的颜色以及分割线的起始偏移</strong>，下图在纵向布局中加入了一条<strong>起始偏移为100dp的品红色</strong>分割线和一条<strong>黑色</strong>分割线：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211221551366.png" style="zoom:67%;"/></center>
+
+<p>　　需要值得注意的是，使用Divider控件创建的分割线<strong>默认是水平分割线并且宽度是撑满整个屏幕的</strong>，如果需要控制Divider的宽度或者创建垂直分割线的话需要<strong>配合控件修饰器Modifier来实现</strong></p>
+<h3 id="控件修饰器Modifier基本用法"><a href="#控件修饰器Modifier基本用法" class="headerlink" title="控件修饰器Modifier基本用法"></a>控件修饰器Modifier基本用法</h3><p>　　单纯使用布局或者控件能够实现的界面比较有限，而且对于部分比较复杂的布局实现起来的难度十分大。于是Compose引入了一个修饰器Modifier。<strong>Compose自带的控件绝大部分都可以传入一个参数modifier</strong>，利用Modifier可以操控布局或者控件的一些基本属性，使布局更加自由以及方便。<strong>导入的Modifier是<code>androidx.compose.ui.Modifier</code>包中的，请注意不要使用了错误的包中的Modifier</strong></p>
+<h4 id="尺寸控制（height-x2F-width-x2F-size-x2F-fillMaxWidth-x2F-fillMaxHeight-x2F-aspectRatio）"><a href="#尺寸控制（height-x2F-width-x2F-size-x2F-fillMaxWidth-x2F-fillMaxHeight-x2F-aspectRatio）" class="headerlink" title="尺寸控制（height&#x2F;width&#x2F;size&#x2F;fillMaxWidth&#x2F;fillMaxHeight&#x2F;aspectRatio）"></a>尺寸控制（height&#x2F;width&#x2F;size&#x2F;fillMaxWidth&#x2F;fillMaxHeight&#x2F;aspectRatio）</h4><p>　　Modifier使用最多的是控制控件或者布局的尺寸，使用<strong>Modifier.height</strong>可以控制控件的<strong>高度</strong>，使用<strong>Modifier.width</strong>可以控制控件的<strong>宽度</strong>。也可以使用<strong>Modifier.size(width, height)<strong>的方式控制</strong>宽高</strong>，当使用<strong>Modifier.size(size)<strong>时表示控件</strong>宽高一致</strong>。传入的值类型都为DP，<strong>在Compose中为Int等数值类型创建了一个拓展方法Int.dp.可以将Int等数值类型转为DP</strong>。</p>
+<p>　　如下创建了一个宽度为200dp的横向布局，其中包括了三种不同尺寸的Image：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211221625963.png" style="zoom:67%;"/></center>
+
+<p>　　对于Image而言如果宽高与图像比例不一致的话，<strong>默认会采用最短的一边来显示完整图像即AndroidView中ImageView的fitCenter一致</strong>。</p>
+<p>　　特殊地，<strong>使用fillMaxWidth&#x2F;fillMaxHeight可以实现AndroidView中的matchParent的效果</strong>，如下图实现了一个横向填满以及一个纵向填满的Image：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211221641494.png" style="zoom:67%;"/></center>
+
+<p>　　当需要使用特殊宽高比例的大小没有给出完整的宽高数据时，可以使用<strong>Modifier.aspectRatio</strong>来避免计算的烦恼。<strong>Modifier.aspectRatio需要传入的是宽高比即宽除高之后的值</strong>，如下图实现了一个宽高比为2的Image：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211221822344.png" alt="image-20221122182236314" style="zoom:67%;" /></center>
+
+<h4 id="边距控制-Padding"><a href="#边距控制-Padding" class="headerlink" title="边距控制(Padding)"></a>边距控制(Padding)</h4><p>　　在Compose中的Padding与AndroidView中的Padding不太相同，反而会更接近于Margin。下面更加直观的体现了Padding的用法：</p>
+<center>
+    <img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211221726565.png" alt="image-20221122172626510" style="zoom:67%;" />
+</center>
+
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211221733503.png" alt="image-20221122173353452" style="zoom:60%;" /></center>
+
+<p>　　可以看出不像AndroidView中的Padding会改变Image的大小，反而更加像是使用了Margin添加了外边距。但<strong>这只是在Image的父容器没有固定最大尺寸的时候会出现</strong>。当Image的父容器出现了给定尺寸时，再次添加Padding显示的效果就和AndroidView中的Padding类似，如下图：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211221815309.png" alt="image-20221122181524258" style="zoom:67%;" /></center>
+
+<p>　　Padding不仅仅可以传入一个值代表周围的边距值，也可以传入不同个数的参数。</p>
+<ul>
+<li><code>Modifier.padding(horizontal, vertical)</code>　　分别定义水平方向以及竖直方向的边距值</li>
+<li><code>Modifier.padding(start, top, end, bottom)</code>  分别定义不同方向的边界值</li>
+</ul>
+<h4 id="切割-x2F-圆角-Clip"><a href="#切割-x2F-圆角-Clip" class="headerlink" title="切割&#x2F;圆角(Clip)"></a>切割&#x2F;圆角(Clip)</h4><p>　　在平常的设计中经常会用到圆角或者圆形的图片，在AndroidView中实现这种功能比较麻烦，一般是使用自定义View的方法去实现。但是这种方法十分麻烦，所以通常是采用第三方的库来实现圆角或者圆形的图片。但是在Compose中Modifier提供了切割（Clip）的功能，通过该功能我们可以很方便的将图片切割成想要的形状，并且Compose中还内置了圆角以及圆形的形状。下图实现了<strong>一个四角圆角为10dp的图片以及一个圆形图片</strong>:</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211241647467.png" style="zoom:67%;" /></center>
+
+<p>　　对于<code>RoundedCornerShape</code>它不仅仅可以对图片四角同时操作也可以单独控制一个圆角，下图实现了单独操控图片圆角的效果</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211241729223.png" style="zoom:67%;" /></center>
+
+<h4 id="交互-Clickable"><a href="#交互-Clickable" class="headerlink" title="交互(Clickable)"></a>交互(Clickable)</h4><p>　　在AndroidView中想实现点击View然后执行一些操作的交互方式，可以通过实现其setOnClickListener的方法实现交互。在Compose中只要使用Modifier.Clickable就可以轻松的完成这个操作。特别的，在Compose的预览界面中还可以通过点击预览上的start interactive mode来直接开启交互模式，验证一些简单的交互操作，不需要启动虚拟机十分方便！</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211241816816.png" alt="image-20221124181612786" style="zoom:150%;" /></center>
+
+<p>　　以上就是修饰器Modifier的一些常用的基本用法，当然Modifier的用处远远不止这一些还有许多复杂的用途，例如实现滑动监听等等，这些我们以后在慢慢了解。</p>
+<h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><p>　　学到这里，应该已经可以完成一些比较简单的界面设计了，下面有一个设计可以尝试着自己实现一下，我也会把源码放在下面。</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202211241831231.png" alt="image-20221124183127208" style="zoom:150%;" /></center>
+
+<p>源码如下：</p>
+<pre><code class="kotlin">    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .height(60.dp)
+    ) &#123;
+        Image(
+            painter = painterResource(id = R.drawable.melon),
+            contentDescription = &quot;icon&quot;,
+            modifier = Modifier
+                .size(30.dp)
+                .clip(CircleShape)
+        )
+        Spacer(modifier = Modifier.width(10.dp))
+        Column &#123;
+            Text(
+                text = &quot;Username&quot;,
+                fontSize = 10.sp,
+                color = Color.White
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = &quot;Recent message!&quot;,
+                fontSize = 12.sp,
+                color = Color.White
+            )
+        &#125;
+    &#125;
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/2241d713a006d44c.jpg"></li>
+                <li class="wechat-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/85440fc204a65735.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2022/12/02/android-compose04/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202208111659518.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202208111659518.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Android Compose 04 列表与状态</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2022/08/15/android-compose02/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202208111659518.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202208111659518.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Android Compose 02 基础控件</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz",
+        appKey: "WY3j7NGFza5tatqze5Dwv4Cz",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202208111655997.png" itemprop="image" alt="BitterLemon" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a target="_blank" href="https://BitterLemonn.github.io" itemprop="url" rel="author noopener">BitterLemon</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>初めて会ったの日から　僕の心の全てを奪った</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 BitterLemon<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2021</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">落ち桜のBitterLemon</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/BitterLemonn" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" class="fa fa-Popi" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2166294272"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

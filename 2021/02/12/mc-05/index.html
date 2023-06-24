@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+  
+  <title itemprop="name">MC开发者日志#05 | 加绒的时间与精神之屋</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "落ち桜のBitterLemon";
+  mashiro_option.author_name = "BitterLemon";
+  mashiro_option.site_url = "https://bitterlemonn.github.io/";
+  mashiro_option.v_appId = "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz";
+  mashiro_option.v_appKey = "WY3j7NGFza5tatqze5Dwv4Cz";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "/images/cover/sagiri1.webp,/images/cover/sagiri2.webp,/images/cover/sagiri3.png,/images/cover/sagiri4.jpg,/images/cover/pikachu1.jpg,/images/cover/pikachu2.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <!-- 樱花特效 -->
+  
+  <meta name="baidu-site-verification" content="code-NrZvN3sXjK" />
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a target="_blank" rel="noopener" href="https://bitterlemonn.github.io/">
+          <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>初めて会ったの日から　僕の心の全てを奪った</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/BitterLemonn" target="_blank" class="social-github" title="Github">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" target="_blank" class="social-github" title="Popi">
+                    <img src="/images/icon/popi.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://music.163.com/#/user/home?id=424261998" target="_blank" class="social-github" title="CloudMusic">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/ku-ning-98" target="_blank" class="social-github" title="ZhiHu">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ty0mOzsqPRAjKiIgIQ8_PmEsICI" target="_blank" class="social-github" title="Email">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">落ち桜の</span>
+            <span class="shironeko">BitterLemon</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U05853d7a3de5405c8ce134341b01e968T.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U05853d7a3de5405c8ce134341b01e968T.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      MC开发者日志#05</h1>
+      <p class="entry-census">
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+          </a>
+        </span>
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">BitterLemon</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-2-12<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="MC开发者日志-05"><a href="#MC开发者日志-05" class="headerlink" title="MC开发者日志#05"></a>MC开发者日志#05</h1><p>今天是大年初一，祝大家新年快乐，心想事成，万事如意呀！！</p>
+<p>这次的博客会总结这两天的内容呀（如果我愿意的话♪(･ω･)ﾉ）</p>
+<h3 id="微光森林生态相关"><a href="#微光森林生态相关" class="headerlink" title="微光森林生态相关"></a>微光森林生态相关</h3><p>解决了<strong>微光虫</strong>（shimmer_bug)(方块)<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131437046.png"><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131437046.png" alt="shimmer_bug_item.png"></a>的物品贴图问题，解决方法是在BlockBench建模的时候要将物品贴图以及模型贴图都导入到项目里面，这样游戏才能正常读取物品的贴图。根据<strong>微光虫</strong>（方块）设计建模了一个新的生物<strong>微光虫</strong>（生物）击杀的掉落物即<strong>微光虫</strong>（方块）</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/b225.png" alt="微光虫.png" style="zoom:25%;" /></center>
+
+<p>继承了原版蝙蝠的行为方式，并且贴图用ps带alpha通道绘制导出为tga文件，可以使得生物具有半透明且发光材质，虽然没有实际的照度但是可以在晚上发现该生物会更加亮眼一些。然后将<strong>微光虫</strong>（生物）的分类设为海洋生物。因为在基岩版中海洋生物的生物密度是最高的，这样可以一次刷新更多<strong>微光虫</strong>，具体<strong>基岩版</strong>生物密度如下图：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/qrec.png" alt="生物密度.png" style="zoom:80%;" /></center>
+
+<p>其次是添加了新的世界生成规则，将<strong>微光草</strong>（shimmer_grass）添加进世界自动生成中，<strong>微光草</strong>（shimmer_grass）将在<strong>微光森林</strong>自动生成。</p>
+<hr>
+<p>考虑到幻鹿的繁殖问题，设计添加了一种新的作物<strong>微光浆果</strong>（shimmer_berry）<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/85ea.png"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/85ea.png" alt="shimmer_berry.png"></a>并利用py脚本完成相关的设计，值得注意的是官网教程给出的模板中使用自定义物品种植自定义作物是<strong>不会消耗</strong>自定义物品的，再了解具体实现过程后实现了相关行为，具体代码如下：</p>
+<pre><code class="python">if (blockDict[&quot;name&quot;] == &quot;minecraft:grass&quot;) or (blockDict[&quot;name&quot;] == &quot;fantasy_world:shimmer_grass_block&quot;):
+    blockDict = &#123;
+        &#39;name&#39;: &#39;fantasy_world:shimmer_berry_stage0&#39;,
+        &#39;aux&#39;: 0
+    &#125;
+    comp.SetBlockNew((args[&quot;x&quot;], args[&quot;y&quot;] + 1, args[&quot;z&quot;]), blockDict)
+
+    comp = serverApi.GetEngineCompFactory().CreateItem(playerId)
+    dict = comp.GetPlayerItem(serverApi.GetMinecraftEnum().ItemPosType.CARRIED, 0)
+
+    comp = serverApi.GetEngineCompFactory().CreateItem(playerId)
+    comp.SetInvItemNum(self.SLOT_ID, 0)
+
+    itemDict = &#123;
+        &#39;itemName&#39;: &#39;fantasy_world:shimmer_berry&#39;,
+        &#39;count&#39;: dict[&#39;count&#39;] - 1,
+        &#39;auxValue&#39;: 0,
+        &#39;customTips&#39;: &#39;%name%%attack_damage%\n§2幻鹿似乎会被浆果的香味吸引过来§r&#39;
+    &#125;
+    comp = serverApi.GetEngineCompFactory().CreateItem(playerId)
+    comp.SpawnItemToPlayerCarried(itemDict, playerId)
+</code></pre>
+<p>在检测玩家使用**微光浆果(shimmer_berry)<strong>时，种植</strong>微光浆果丛(shimmer_berry_stage0)**然后利用<code>dict = comp.GetPlayerItem(serverApi.GetMinecraftEnum().ItemPosType.CARRIED, 0)</code>获取玩家现在手持的物品详细信息存在dict中，再利用<code>comp.SetInvItemNum(self.SLOT_ID, 0)</code>将玩家手持的物品清空，最后利用<code>comp.SpawnItemToPlayerCarried(itemDict, playerId)</code>生成原本物品数量减一的物品到玩家手上，其中 <strong>self.SLOT_ID</strong> 是由客户端py脚本监听使用物品事件返回的玩家手持物品在装备栏的第几格，具体实现如下：</p>
+<pre><code class="python">    def OnClientItemTryUseEvent(self, data):
+        itemDict = data[&#39;itemDict&#39;]
+        playerId = data[&#39;playerId&#39;]
+        if itemDict[&#39;itemName&#39;] == &quot;fantasy_world:shimmer_berry&quot;:
+            comp = clientApi.GetEngineCompFactory().CreateItem(playerId)
+            slotId = comp.GetSlotId()
+            CustomCropServer.SLOT_ID = slotId
+</code></pre>
+<p>在玩家使用**微光浆果(shimmer_berry)**时利用<code>slotId = comp.GetSlotId()</code>获取玩家手持物品的栏位并返回给服务端</p>
+<p><strong>微光浆果(shimmer_berry)<strong>的首次获得方式是破坏</strong>微光草(shimmer_grass)</strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/74jw.png"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/74jw.png" alt="shimmer_grass_empty.png"></a>时有1&#x2F;10的几率会掉落，随后可以利用种植获得更多。</p>
+<hr>
+<p>幻鹿的繁殖只需要在幻鹿的生物行为json文件中添加相关逻辑就可以了，相关代码如下：</p>
+<pre><code class="json">&#123;
+    &quot;format_version&quot;: &quot;1.12.0&quot;,
+    &quot;minecraft:entity&quot;: &#123;
+        &quot;component_groups&quot;: &#123;
+            &quot;minecraft:magic_deer_adult&quot;: &#123;
+                &quot;minecraft:breedable&quot;: &#123;
+                    &quot;breed_items&quot;: [
+                        &quot;fantasy_world:shimmer_berry&quot;
+                    ],
+                    &quot;breeds_with&quot;: &#123;
+                        &quot;baby_type&quot;: &quot;fantasy_world:magic_deer&quot;,
+                        &quot;breed_event&quot;: &#123;
+                            &quot;event&quot;: &quot;minecraft:entity_born&quot;,
+                            &quot;target&quot;: &quot;baby&quot;
+                        &#125;,
+                        &quot;mate_type&quot;: &quot;fantasy_world:magic_deer&quot;
+                    &#125;,
+                    &quot;require_tame&quot;: false
+                &#125;,
+                ·····
+            &#125;,
+            ·····
+            &quot;minecraft:magic_deer_baby&quot;: &#123;
+                &quot;minecraft:ageable&quot;: &#123;
+                    &quot;duration&quot;: 1200,
+                    &quot;feed_items&quot;: [
+                        &quot;fantasy_world:shimmer_berry&quot;
+                    ],
+                    &quot;grow_up&quot;: &#123;
+                        &quot;event&quot;: &quot;minecraft:ageable_grow_up&quot;,
+                        &quot;target&quot;: &quot;self&quot;
+                    &#125;
+                &#125;,
+                &quot;minecraft:behavior.follow_parent&quot;: &#123;
+                    &quot;priority&quot;: 5,
+                    &quot;speed_multiplier&quot;: 1.1
+                &#125;,
+                ·····
+            &#125;
+        &#125;,
+        &quot;components&quot;: &#123;
+            ·····
+            &quot;minecraft:behavior.breed&quot;: &#123;
+                &quot;priority&quot;: 3,
+                &quot;speed_multiplier&quot;: 0.8
+            &#125;,
+            ·····
+            &quot;minecraft:behavior.tempt&quot;: &#123;
+                &quot;items&quot;: [
+                    &quot;fantasy_world:shimmer_berry&quot;
+                ],
+                &quot;priority&quot;: 4,
+                &quot;speed_multiplier&quot;: 1.0
+            &#125;,
+            ·····
+        &#125;,
+        &quot;description&quot;: &#123;
+            ·····
+        &#125;,
+        &quot;events&quot;: &#123;
+            &quot;minecraft:ageable_grow_up&quot;: &#123;
+                &quot;add&quot;: &#123;
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_adult&quot;
+                    ]
+                &#125;,
+                &quot;remove&quot;: &#123;
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_baby&quot;
+                    ]
+                &#125;
+            &#125;,
+            &quot;minecraft:entity_born&quot;: &#123;
+                &quot;add&quot;: &#123;
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_baby&quot;
+                    ]
+                &#125;,
+                &quot;remove&quot;: &#123;&#125;
+            &#125;,
+            ·····
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>其中在成年组代码中的</p>
+<pre><code class="json">                &quot;minecraft:breedable&quot;: &#123;
+                    &quot;breed_items&quot;: [
+                        &quot;fantasy_world:shimmer_berry&quot;
+                    ],
+                    &quot;breeds_with&quot;: &#123;
+                        &quot;baby_type&quot;: &quot;fantasy_world:magic_deer&quot;,
+                        &quot;breed_event&quot;: &#123;
+                            &quot;event&quot;: &quot;minecraft:entity_born&quot;,
+                            &quot;target&quot;: &quot;baby&quot;
+                        &#125;,
+                        &quot;mate_type&quot;: &quot;fantasy_world:magic_deer&quot;
+                    &#125;
+</code></pre>
+<p>定义了</p>
+<ul>
+<li>繁殖需要的物品<strong>breed_items</strong></li>
+<li>繁殖的伙伴<strong>mate_type</strong></li>
+<li>繁殖的结果<strong>baby_type</strong></li>
+<li>繁殖事件<strong>breed_event</strong></li>
+</ul>
+<p>繁殖事件指向了事件代码中的</p>
+<pre><code class="json">            &quot;minecraft:entity_born&quot;: &#123;
+                &quot;add&quot;: &#123;
+                    &quot;component_groups&quot;: [
+                        &quot;minecraft:magic_deer_baby&quot;
+                    ]
+                &#125;,
+                &quot;remove&quot;: &#123;&#125;
+            &#125;
+</code></pre>
+<p>事件为新出生的幻鹿添加了相关的组，<font color=red>值得注意的是要在常规组（components）中添加繁殖的定义<strong>minecraft:behavior.breed</strong>不然会出现动物喂食后进入爱情状态却不会繁殖的情况，当时排查了好久才发现这里出了问题</font></p>
+<hr>
+<p>至此微光森林的生态主体就完成了，来欣赏一下吧！</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/pofc.gif"/></center>
+
+<center>白天的微光森林</center>
+
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/34jw.gif" alt="微光森林晚上.gif" style="zoom:150%;" /></center>
+
+<center>夜晚的微光森林</center>
+
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/2241d713a006d44c.jpg"></li>
+                <li class="wechat-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/85440fc204a65735.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/05/02/android-developer01/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://raw.staticdn.net/BitterLemonn/BlogPicBed/master/bg1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://raw.staticdn.net/BitterLemonn/BlogPicBed/master/bg1.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                利用底部导航以及碎片轻松实现不同页面的切换</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/02/08/mc-04/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U05853d7a3de5405c8ce134341b01e968T.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U05853d7a3de5405c8ce134341b01e968T.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                MC开发者日志#04</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz",
+        appKey: "WY3j7NGFza5tatqze5Dwv4Cz",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg" itemprop="image" alt="BitterLemon" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a target="_blank" href="https://BitterLemonn.github.io" itemprop="url" rel="author noopener">BitterLemon</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>初めて会ったの日から　僕の心の全てを奪った</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 BitterLemon<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2021</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">落ち桜のBitterLemon</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/BitterLemonn" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" class="fa fa-Popi" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2166294272"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

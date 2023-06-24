@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+  
+  <title itemprop="name">浅谈Java抽象类以及接口 | 加绒的时间与精神之屋</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "落ち桜のBitterLemon";
+  mashiro_option.author_name = "BitterLemon";
+  mashiro_option.site_url = "https://bitterlemonn.github.io/";
+  mashiro_option.v_appId = "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz";
+  mashiro_option.v_appKey = "WY3j7NGFza5tatqze5Dwv4Cz";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "/images/cover/sagiri1.webp,/images/cover/sagiri2.webp,/images/cover/sagiri3.png,/images/cover/sagiri4.jpg,/images/cover/pikachu1.jpg,/images/cover/pikachu2.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <!-- 樱花特效 -->
+  
+  <meta name="baidu-site-verification" content="code-NrZvN3sXjK" />
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a target="_blank" rel="noopener" href="https://bitterlemonn.github.io/">
+          <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>初めて会ったの日から　僕の心の全てを奪った</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/BitterLemonn" target="_blank" class="social-github" title="Github">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" target="_blank" class="social-github" title="Popi">
+                    <img src="/images/icon/popi.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://music.163.com/#/user/home?id=424261998" target="_blank" class="social-github" title="CloudMusic">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/ku-ning-98" target="_blank" class="social-github" title="ZhiHu">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ty0mOzsqPRAjKiIgIQ8_PmEsICI" target="_blank" class="social-github" title="Email">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">落ち桜の</span>
+            <span class="shironeko">BitterLemon</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/java1.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/java1.webp">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      浅谈Java抽象类以及接口</h1>
+      <p class="entry-census">
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+          </a>
+        </span>
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">BitterLemon</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-10-24<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="浅谈Java抽象类以及接口"><a href="#浅谈Java抽象类以及接口" class="headerlink" title="浅谈Java抽象类以及接口"></a>浅谈Java抽象类以及接口</h1><p>　　Java几大特点当中继承算得上是一个就算是初学者也会使用的很频繁的一个属性了。而抽象类以及接口便是Java中最能体现继承特点的了</p>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><h3 id="抽象关键词与抽象方法"><a href="#抽象关键词与抽象方法" class="headerlink" title="抽象关键词与抽象方法"></a>抽象关键词与抽象方法</h3><p>　　在了解抽象类之前我们需要先了解一下抽象关键字 (<strong>abstract</strong>) 以及抽象方法。抽象方法是一种特殊的方法：它只有声明，而没有具体的实现。具体的抽象方法的声明格式例如：</p>
+<pre><code class="java">abstract void fun();
+</code></pre>
+<p> 　　一个方法要成为抽象方法，一定要使用抽象关键字(<strong>abstract</strong>)修饰。显而易见，如果一个类拥有抽象方法，那么这个类就可以称为抽象类，抽象类也必须使用抽象关键字修饰。<strong>虽然拥有抽象方法的类是抽象类，但是抽象类并不一定包含抽象方法</strong>，任何被抽象关键字修饰的类均可以被称为抽象类，即使它不包含任何抽象方法。<strong>抽象类中也并不是所有方法都是抽象方法，抽象类也可以包含有一般方法。</strong>由于不包含任何抽象方法的抽象类不具有实际意义，所以本文不对这种情况展开讨论。</p>
+<h3 id="抽象类的特征"><a href="#抽象类的特征" class="headerlink" title="抽象类的特征"></a>抽象类的特征</h3><p>　　因为抽象类的目的就是用于继承所以抽象类会与普通类有些不一样的地方。</p>
+<p>　　抽象类包含的抽象方法权限修饰词必须为 public 或者 protected。<strong>因为如果为private则不能被子类继承，如果子类不能继承该方法就无法实现它</strong>，通常情况下我们会将修饰词设为 public。</p>
+<p>　　Java通过创建对象来使用我们所定义的方法，<strong>但是抽象类是无法用来创建对象的</strong>。就好比我给你一个抽象概念：人， 你就不能给我一个具体的对象，因为不知道具有什么特定的特征。</p>
+<p>　　因为抽象类使用的目的是为了继承，所以<strong>继承他的子类必须实现其中的抽象方法</strong>，即将抽象类具体化。如果继承他的子类没有实现其中的抽象方法，那么该子类也必须为抽象类且包含未实现的抽象方法。</p>
+<p>　　综上所述，抽象类拥有这几个特征：</p>
+<ol>
+<li><strong>抽象方法必须为 public 或者 protected</strong></li>
+<li><strong>抽象类不能用来创建对象</strong></li>
+<li><strong>如果一个类继承于一个抽象类，则子类必须实现父类的抽象方法。如果子类没有实现父类的抽象方法，则必须将子类也定义为为 abstract 类</strong></li>
+</ol>
+<p>　　除此之外其他都与普通类相同。</p>
+<h3 id="抽象类的应用"><a href="#抽象类的应用" class="headerlink" title="抽象类的应用"></a>抽象类的应用</h3><p>　　在了解完抽象类的概念后，来稍微实践一下！假设你是一个动物园园长，现在你的动物园里购入了四种动物——牛、羊、狗、猫。众所周知他们都会吃东西，所以每一个动物都有吃东西的方法。接下来我们将他们实现，在了解过继承之后我们可以知道他们都能继承自一个父类animals，有着一个方法eat。</p>
+<pre><code class="java">class Animals &#123;
+    public String eat()&#123;
+        return &quot;吃了一个东西&quot;;
+    &#125;
+&#125;
+class Cow extends Animals&#123;
+&#125;
+class Sheep extends Animals&#123;
+&#125;
+class Cat extends Animals&#123;
+&#125;
+class Dog extends Animals&#123;
+&#125;
+</code></pre>
+<p>我们可以很快地把它们一一实现，这样我们可以调用每一种动物的吃东西方法了。作为一个生物，还有一个基本的特征那就是叫，我们可以也把叫(shout)方法加入到他们的父类中吗？显然直接加入是不可以的，因为每一只动物叫声都不太一样。那么抽象类的作用就出来了。**我们把他的父类变为抽象类，包含一个抽象方法叫(shout)**。更改过后就可以在每一个动物中实现叫的方法了。</p>
+<pre><code class="java">abstract class Animals &#123;
+    public String eat()&#123;
+        return &quot;吃了一个东西&quot;;
+    &#125;
+    abstract public String shout();
+&#125;
+class Cow extends Animals&#123;
+    public String shout()&#123;
+        return &quot;哞哞哞~&quot;;
+    &#125;
+&#125;
+class Sheep extends Animals&#123;
+    public String shout()&#123;
+        return &quot;咩咩咩~&quot;;
+    &#125;
+&#125;
+class Cat extends Animals&#123;
+    public String shout()&#123;
+        return &quot;喵喵喵~&quot;;
+    &#125;
+&#125;
+class Dog extends Animals&#123;
+    public String shout()&#123;
+        return &quot;汪汪汪~&quot;;
+    &#125;
+&#125;
+</code></pre>
+<p>看到这可能会有一个疑惑，为什么不能直接在每一种动物中编写叫的方法呢？其实是可以的，但是为什么要使用抽象类这种看似繁琐的操作呢。<strong>因为当你继承了一个抽象类，系统就会提醒你还有抽象方法没有实现</strong>。你可能会忘记实现某一个方法，但是动物不会忘记怎么叫，对吧！</p>
+<p>　　经营了不久，你发现你的动物园出现了老鼠。这时你想到了你的动物们，猫会抓老鼠，虽然是多管闲事，狗也会抓！但是并不是所有动物都会抓老鼠啊，所以不能将抓老鼠的方法放在他们的父类 animals中。这个时候接口就派上用场了。</p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="接口的定义"><a href="#接口的定义" class="headerlink" title="接口的定义"></a>接口的定义</h3><p>　　接口，英文称作 interface，在软件工程中，接口泛指供别人调用的方法或者函数。从这里，我们可以体会到 Java 语言设计者的初衷，它是对行为的抽象。在 Java 中，定一个接口的形式如下：</p>
+<pre><code class="java">interface I &#123;
+
+&#125;
+</code></pre>
+<h3 id="接口的特征"><a href="#接口的特征" class="headerlink" title="接口的特征"></a>接口的特征</h3><p>　　与抽象类不同的是，<strong>接口中的方法默认、隐式、且只能被 public abstract 修饰</strong>，如果运用其他修饰词去修饰其中的方法那么这个方法就会报错。 <strong>虽然我们能够在接口中定义成员变量，但是我们通常且不推荐这么做</strong>。因为方法被 abstract 修饰，所以接口中的方法都是抽象的不能有具体的实现。从这里我们可以看出接口是一个极度抽象的类型，他要比抽象类抽象的多。</p>
+<p>　　而且与抽象类不同的还有，一个类只能继承一个抽象类，但是却可以使用多个接口，具体的格式如下：</p>
+<pre><code class="java">class ClassName implements Interface1, Interface2, ...&#123;
+&#125;
+</code></pre>
+<p>接口是Java提供给开发者对对象<strong>行为</strong>的一种极度抽象方式，例如飞机和鸟都会飞，但是我们并不能把飞行作为一个抽象类，因为飞行只是一种行为。我们可以让飞机实现飞行接口，鸟实现飞行接口，然后再去定义各自的飞行方法。而飞机也分为战斗机，直升机等等，这个抽象就可以使用抽象类了。</p>
+<p>　　稍微总结一下，接口拥有以下几个特征：</p>
+<ol>
+<li><strong>接口中的方法只能被 public abstract 修饰</strong></li>
+<li><strong>一个类可以使用多个接口，而只能继承一个抽象类</strong></li>
+</ol>
+<p>　　再次回到我们的动物园，抓老鼠作为一种行为，我们可以使用接口来描述他。</p>
+<pre><code class="java">interface CatchMice&#123;
+    public void catchs();
+&#125;
+</code></pre>
+<p>再让我们的猫狗各自实现它就可以抓老鼠啦。</p>
+<pre><code class="java">interface CatchMice&#123;
+    public String catchs();
+&#125;
+abstract class Animals &#123;
+    public String eat()&#123;
+        return &quot;吃了一个东西&quot;;
+    &#125;
+    abstract public String shout();
+&#125;
+class Cow extends Animals&#123;
+    public String shout()&#123;
+        return &quot;哞哞哞~&quot;;
+    &#125;
+&#125;
+class Sheep extends Animals&#123;
+    public String shout()&#123;
+        return &quot;咩咩咩~&quot;;
+    &#125;
+&#125;
+class Cat extends Animals implements CatchMice&#123;
+    public String shout()&#123;
+        return &quot;喵喵喵~&quot;;
+    &#125;
+    public String catchs()&#123;
+        return &quot;抓了一只老鼠，并喵了一声——&quot;;
+    &#125;
+&#125;
+class Dog extends Animals&#123;
+    public String shout()&#123;
+        return &quot;汪汪汪~&quot;;
+    &#125;
+    public String catchs()&#123;
+        return &quot;抓了一只老鼠，并汪了一声——&quot;;
+    &#125;
+&#125;
+</code></pre>
+<p>至此，我们的动物园就很完善了。</p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p> 　　我们这次的作业很简单，自己设计一个用得上抽象类和接口的程序就可以啦。这里可以提供一些思路，比如不同职业的员工工作的内容不同就可以使用抽象类，某些人因为职称的关系有一些有别于不同员工的行为就可以运用上接口。</p>
+<h2 id="课后作业"><a href="#课后作业" class="headerlink" title="课后作业"></a>课后作业</h2><ol>
+<li>要求编写一个类<strong>Shape</strong>包含两个方法——获取面积、获取周长。编写三个形状类——三角形，圆形矩形，包含相关的成员变量 <strong>边长</strong>。要求调用获取面积以及获取周长的方法去获取创建的对象的面积以及周长。</li>
+<li>要求编写一个接口，<strong>包含一个printLetter的方法</strong>。编写两个<strong>类A，B实现接口printLetter</strong>，要求A的printLetter方法具体实现是打印26个<strong>大写字母</strong>，B的printLetter方法具体实现是打印26个<strong>小写字母</strong>。</li>
+</ol>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/2241d713a006d44c.jpg"></li>
+                <li class="wechat-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/85440fc204a65735.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2022/04/30/embedded_develop01/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/emb.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/emb.webp">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                嵌入式系统LED灯编程</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/09/17/Java-developer01/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/java1.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/java1.webp">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                认识Java中的反射机制以及配置文件的应用</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz",
+        appKey: "WY3j7NGFza5tatqze5Dwv4Cz",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg" itemprop="image" alt="BitterLemon" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a target="_blank" href="https://BitterLemonn.github.io" itemprop="url" rel="author noopener">BitterLemon</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>初めて会ったの日から　僕の心の全てを奪った</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 BitterLemon<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2021</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">落ち桜のBitterLemon</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/BitterLemonn" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" class="fa fa-Popi" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2166294272"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

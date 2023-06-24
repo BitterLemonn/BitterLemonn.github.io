@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+  
+  <title itemprop="name">RecycleView轻松解决消息列表 | 加绒的时间与精神之屋</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "落ち桜のBitterLemon";
+  mashiro_option.author_name = "BitterLemon";
+  mashiro_option.site_url = "https://bitterlemonn.github.io/";
+  mashiro_option.v_appId = "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz";
+  mashiro_option.v_appKey = "WY3j7NGFza5tatqze5Dwv4Cz";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "/images/cover/sagiri1.webp,/images/cover/sagiri2.webp,/images/cover/sagiri3.png,/images/cover/sagiri4.jpg,/images/cover/pikachu1.jpg,/images/cover/pikachu2.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <!-- 樱花特效 -->
+  
+  <meta name="baidu-site-verification" content="code-NrZvN3sXjK" />
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a target="_blank" rel="noopener" href="https://bitterlemonn.github.io/">
+          <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>初めて会ったの日から　僕の心の全てを奪った</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/BitterLemonn" target="_blank" class="social-github" title="Github">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" target="_blank" class="social-github" title="Popi">
+                    <img src="/images/icon/popi.jpg">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://music.163.com/#/user/home?id=424261998" target="_blank" class="social-github" title="CloudMusic">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/ku-ning-98" target="_blank" class="social-github" title="ZhiHu">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ty0mOzsqPRAjKiIgIQ8_PmEsICI" target="_blank" class="social-github" title="Email">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">落ち桜の</span>
+            <span class="shironeko">BitterLemon</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/bg1.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/bg1.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      RecycleView轻松解决消息列表</h1>
+      <p class="entry-census">
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+          </a>
+        </span>
+        <span>
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">BitterLemon</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-5-14<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="安卓前端研习——RecycleView轻松解决消息列表"><a href="#安卓前端研习——RecycleView轻松解决消息列表" class="headerlink" title="安卓前端研习——RecycleView轻松解决消息列表"></a>安卓前端研习——RecycleView轻松解决消息列表</h1><p>　　消息列表是大部分应用都会使用到的一个组件，诸如聊天列表，通知列表，资源列表等都可以看到类消息列表的不定条目的列表组件，很多教程会使用到listview来实现消息列表，但是使用较新的RecycleView可以更为轻松地实现这个组件的布局。</p>
+<p>　　实现后效果如图：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/20923732037.jpg"/></center>
+
+<h2 id="添加支持库到项目中"><a href="#添加支持库到项目中" class="headerlink" title="添加支持库到项目中"></a>添加支持库到项目中</h2><p>　　按照惯例我们需要将所需的依赖添加到项目中，在build中加入以下代码：</p>
+<pre><code class="xml">dependencies &#123;
+    implementation &#39;com.android.support:recyclerview-v7:28.0.0&#39;
+&#125;
+</code></pre>
+<h2 id="配置布局文件资源"><a href="#配置布局文件资源" class="headerlink" title="配置布局文件资源"></a>配置布局文件资源</h2><p>　　首先我们要创建一个xml文件，其中包含一个RecycleView，我们使用一个简单的布局，布局文件仅包含一个RecycleView，例如：</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;&gt;
+
+    &lt;androidx.recyclerview.widget.RecyclerView
+        android:id=&quot;@+id/new_src_container&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:padding=&quot;15dp&quot;
+        app:layout_constraintWidth_percent=&quot;1&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
+</code></pre>
+<h2 id="实例化控件以及其他储存"><a href="#实例化控件以及其他储存" class="headerlink" title="实例化控件以及其他储存"></a>实例化控件以及其他储存</h2><p>　　首先需要获取布局文件中的控件，并进行实例化，初始化包含item的列表。代码如下：</p>
+<pre><code class="java">    private void initRecyclerView()&#123;
+        new_src_container = (RecyclerView) getActivity().findViewById(R.id.new_src_container);
+        new_src_container.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getActivity());
+        new_src_container.setLayoutManager(layoutManager);
+        src_list = new ArrayList&lt;&gt;();
+    &#125;
+</code></pre>
+<p>　　然后我们需要构造消息item的布局以及实例化代码。</p>
+<h2 id="item布局的设置"><a href="#item布局的设置" class="headerlink" title="item布局的设置"></a>item布局的设置</h2><p>　　创建一个新的xml文件对每一个公式化的item进行布局。</p>
+<p>　　我创建的item布局大概如图，有一个显示文件类型的图标，一个显示文件大小的文本，一个显示文件标题的文本，一个显示描述的文本，和一个标识是否免费的组合控件，和一个覆盖整个布局的按钮。</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131059918.jpeg"/></center>
+
+<p>具体布局代码如下：</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;100dp&quot;
+    android:layout_marginTop=&quot;20dp&quot;
+    android:id=&quot;@+id/src_item&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/src_item_bg&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:scaleType=&quot;fitXY&quot;
+        android:src=&quot;@drawable/src_item_bg&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/src_type_pic&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_marginTop=&quot;16dp&quot;
+        android:src=&quot;@drawable/txt&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        app:layout_constraintHeight_percent=&quot;0.5&quot;
+        app:layout_constraintHorizontal_bias=&quot;0.068&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot;
+        app:layout_constraintWidth_percent=&quot;0.1277&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/src_size&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:text=&quot;Unknown&quot;
+        android:textSize=&quot;12sp&quot;
+        android:gravity=&quot;center&quot;
+        android:singleLine=&quot;true&quot;
+        android:textColor=&quot;#818181&quot;
+        app:layout_constraintEnd_toEndOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintHeight_percent=&quot;0.2084&quot;
+        app:layout_constraintStart_toStartOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintTop_toBottomOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintWidth_percent=&quot;0.1265&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/src_title&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_marginStart=&quot;20dp&quot;
+        android:layout_marginLeft=&quot;20dp&quot;
+        android:singleLine=&quot;true&quot;
+        android:text=&quot;Unknown title&quot;
+        android:textColor=&quot;#616161&quot;
+        android:textSize=&quot;16sp&quot;
+        app:layout_constraintBottom_toBottomOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintHeight_percent=&quot;0.2455&quot;
+        app:layout_constraintStart_toEndOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintTop_toTopOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintVertical_bias=&quot;0.038&quot;
+        app:layout_constraintWidth_percent=&quot;0.5576&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/src_describe&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_marginStart=&quot;20dp&quot;
+        android:layout_marginLeft=&quot;20dp&quot;
+        android:text=&quot;Undefine describe&quot;
+        android:textColor=&quot;#818181&quot;
+        android:textSize=&quot;12sp&quot;
+        app:layout_constraintBottom_toTopOf=&quot;@+id/src_size&quot;
+        app:layout_constraintHeight_percent=&quot;0.2055&quot;
+        app:layout_constraintStart_toEndOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintTop_toTopOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintVertical_bias=&quot;1.0&quot;
+        app:layout_constraintWidth_percent=&quot;0.5576&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/free_tag&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:src=&quot;@drawable/free_bg&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        app:layout_constraintHeight_percent=&quot;0.2083&quot;
+        app:layout_constraintHorizontal_bias=&quot;0.876&quot;
+        app:layout_constraintStart_toEndOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot;
+        app:layout_constraintWidth_percent=&quot;0.0833&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/free_tag_text&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:src=&quot;@drawable/free_text&quot;
+        app:layout_constraintBottom_toBottomOf=&quot;@+id/free_tag&quot;
+        app:layout_constraintEnd_toEndOf=&quot;@+id/free_tag&quot;
+        app:layout_constraintHeight_percent=&quot;0.12&quot;
+        app:layout_constraintStart_toStartOf=&quot;@+id/free_tag&quot;
+        app:layout_constraintTop_toTopOf=&quot;@+id/free_tag&quot;
+        app:layout_constraintWidth_percent=&quot;0.0444&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/src_more&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:layout_marginStart=&quot;48dp&quot;
+        android:layout_marginLeft=&quot;48dp&quot;
+        android:scaleType=&quot;fitCenter&quot;
+        android:src=&quot;@drawable/src_item_more&quot;
+        app:layout_constraintBottom_toBottomOf=&quot;@+id/src_size&quot;
+        app:layout_constraintHeight_percent=&quot;0.1667&quot;
+        app:layout_constraintStart_toEndOf=&quot;@+id/src_title&quot;
+        app:layout_constraintTop_toTopOf=&quot;@+id/src_type_pic&quot;
+        app:layout_constraintVertical_bias=&quot;0.463&quot;
+        app:layout_constraintWidth_percent=&quot;0.037&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/src_more_btn&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;0dp&quot;
+        android:background=&quot;@null&quot;
+        style=&quot;?android:attr/borderlessButtonStyle&quot;
+        android:theme=&quot;@style/BigRippleWhite&quot;
+        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
+        app:layout_constraintHeight_percent=&quot;1&quot;
+        app:layout_constraintStart_toStartOf=&quot;parent&quot;
+        app:layout_constraintTop_toTopOf=&quot;parent&quot;
+        app:layout_constraintWidth_percent=&quot;1&quot; /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
+</code></pre>
+<p>这里需要注意的是，布局文件中的<code>android:layout_height</code>不能使用默认的march_parent，因为这是一个item的大小，高度要根据需求进行调整。若要实现每个item中的间隔只需要给布局文件中加入<code>    android:layout_marginTop=&quot;20dp&quot;</code>即可，具体间隔多少可自行调整。</p>
+<h2 id="创建item的实例化Java代码"><a href="#创建item的实例化Java代码" class="headerlink" title="创建item的实例化Java代码"></a>创建item的实例化Java代码</h2><p>　　首先明确item中有什么需要设置值的控件，然后对每一个控件实现set和get方法即可，代码如下：</p>
+<pre><code class="java">package com.example.quanta;
+
+import android.graphics.drawable.Drawable;
+
+public class SrcItem &#123;
+    private Drawable typePic;
+    private String title;
+    private String describe;
+    private String size;
+    private boolean isFree;
+
+    public SrcItem(Drawable typePic, String title, String describe, String size, boolean isFree)&#123;
+        this.typePic = typePic;
+        this.title = title;
+        this.describe = describe;
+        this.size = size;
+        this.isFree = isFree;
+    &#125;
+
+    public Drawable getTypePic() &#123;
+        return typePic;
+    &#125;
+
+    public void setTypePic(Drawable typePic) &#123;
+        this.typePic = typePic;
+    &#125;
+
+    public String getTitle() &#123;
+        return title;
+    &#125;
+
+    public void setTitle(String title) &#123;
+        this.title = title;
+    &#125;
+
+    public String getDescribe() &#123;
+        return describe;
+    &#125;
+
+    public void setDescribe(String describe) &#123;
+        this.describe = describe;
+    &#125;
+
+    public String getSize() &#123;
+        return size;
+    &#125;
+
+    public void setSize(String size) &#123;
+        this.size = size;
+    &#125;
+
+    public boolean isFree() &#123;
+        return isFree;
+    &#125;
+
+    public void setFree(boolean free) &#123;
+        isFree = free;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="实现创建item并加入储存中的逻辑"><a href="#实现创建item并加入储存中的逻辑" class="headerlink" title="实现创建item并加入储存中的逻辑"></a>实现创建item并加入储存中的逻辑</h2><p>　　因为我的控件需要对不同的文件类型使用不同的图片（资源文件），所以代码中会有对不同类型的处理，具体代码如下：</p>
+<pre><code class="java">    public void createItem(String type, String title, String describe, String size, boolean isFree)&#123;
+        Drawable typePic = null;
+        Resources resources = getResources();
+        switch (type)&#123;
+            case &quot;TXT&quot;:
+                typePic = resources.getDrawable(R.drawable.txt);
+                break;
+            case &quot;DOC&quot;:
+                typePic = resources.getDrawable(R.drawable.doc);
+                break;
+            case &quot;PPT&quot;:
+                typePic = resources.getDrawable(R.drawable.ppt);
+                break;
+            case &quot;RAR&quot;:
+                typePic = resources.getDrawable(R.drawable.rar);
+                break;
+            default:
+                break;
+        &#125;
+        SrcItem srcItem = new SrcItem(typePic, title, describe, size, isFree);
+        src_list.add(srcItem);
+        addIntoContainer();
+    &#125;
+
+    public void addIntoContainer()&#123;
+        mAdapter = new SrcListRecycleViewAdapter(src_list,getActivity());
+        new_src_container.setAdapter(mAdapter);
+    &#125;
+</code></pre>
+<p>需要注意的是<code>SrcListRecycleViewAdapter</code>是自定义的RecycleViewAdapter，接下来将会讲解配置自定义RecycleViewAdapter的方法。</p>
+<h2 id="配置自定义RecycleViewAdapter"><a href="#配置自定义RecycleViewAdapter" class="headerlink" title="配置自定义RecycleViewAdapter"></a>配置自定义RecycleViewAdapter</h2><p>　　因为内置的RecycleViewAdapter并不能完成我们需要的所有功能，所以我们要自定义一个RecycleViewAdapter继承自原版的RecycleViewAdapter。</p>
+<p>　　具体代码如下：</p>
+<pre><code class="java">package com.example.quanta;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+public class SrcListRecycleViewAdapter extends RecyclerView.Adapter&lt;SrcListRecycleViewAdapter.MyViewHolder&gt; &#123;
+    private List&lt;SrcItem&gt; itemList;
+    private Context context;
+
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder&#123;
+        TextView src_title;
+        TextView src_describe;
+        TextView src_size;
+        ImageView isFreeBG;
+        ImageView isFreeText;
+        ImageView typePic;
+
+        public MyViewHolder(@NonNull View itemView) &#123;
+            super(itemView);
+            src_title = itemView.findViewById(R.id.src_title);
+            src_describe = itemView.findViewById(R.id.src_describe);
+            src_size = itemView.findViewById(R.id.src_size);
+            isFreeBG = itemView.findViewById(R.id.free_tag);
+            isFreeText = itemView.findViewById(R.id.free_tag_text);
+            typePic = itemView.findViewById(R.id.src_type_pic);
+        &#125;
+    &#125;
+
+    public SrcListRecycleViewAdapter(List&lt;SrcItem&gt; itemList, Context context)&#123;
+        this.context = context;
+        this.itemList = itemList;
+    &#125;
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) &#123;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.src_item,
+                parent, false);
+        return new MyViewHolder(v);
+    &#125;
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) &#123;
+        SrcItem srcItem = this.itemList.get(position);
+        holder.src_title.setText(srcItem.getTitle());
+        holder.src_size.setText(srcItem.getSize());
+        holder.src_describe.setText(srcItem.getDescribe());
+        holder.typePic.setImageDrawable(srcItem.getTypePic());
+        if (!srcItem.isFree())&#123;
+            holder.isFreeBG.setVisibility(View.INVISIBLE);
+            holder.isFreeText.setVisibility(View.INVISIBLE);
+        &#125;
+    &#125;
+
+    @Override
+    public int getItemCount() &#123;
+        return this.itemList.size();
+    &#125;
+&#125;
+</code></pre>
+<p>其中<code>onCreateViewHolder</code>方法中的inflate应填入自己的item布局的标识，这个方法是用于创建一个自定义的view并且返回。</p>
+<p>　　在方法<code>onBindViewHolder</code>中会调用item对象的相关set方法，对指定的控件的值进行修改。因为我的布局的特殊性，isfree字段仅用于判断是否免费，并不对布局中的组件进行赋值操作，而是进行显示或者隐藏的操作，因此使用到了判断语句并实现功能，具体代码为：</p>
+<pre><code class="java">        if (!srcItem.isFree())&#123;
+            holder.isFreeBG.setVisibility(View.INVISIBLE);
+            holder.isFreeText.setVisibility(View.INVISIBLE);
+        &#125;
+</code></pre>
+<h2 id="创建item并导入RecycleView中"><a href="#创建item并导入RecycleView中" class="headerlink" title="创建item并导入RecycleView中"></a>创建item并导入RecycleView中</h2><p>　　我们只需要简单的调用createItem方法即可完成所有一系列的操作，其中createItem中传入的值即修改item布局中值所需要的值，简单的代码如下：</p>
+<pre><code class="java">        for (int i = 0; i &lt; 20; i++)&#123;
+            createItem(&quot;DOC&quot;, &quot;测试&quot;, &quot;小测试代码&quot;, &quot;189KB&quot;, false);
+        &#125;
+</code></pre>
+<p>这段代码便可以创建20个一样的item并显示出来。效果如图：</p>
+<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/794863732501.jpg"/></center>
+
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/2241d713a006d44c.jpg"></li>
+                <li class="wechat-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/85440fc204a65735.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/07/13/android-developer06/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/bg1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/bg1.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                使用全局变量简单保存重复使用的值</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/05/09/android-developer04/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/bg1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/bg1.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                viewpager常见问题及解决</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz",
+        appKey: "WY3j7NGFza5tatqze5Dwv4Cz",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg" itemprop="image" alt="BitterLemon" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a target="_blank" href="https://BitterLemonn.github.io" itemprop="url" rel="author noopener">BitterLemon</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>初めて会ったの日から　僕の心の全てを奪った</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 BitterLemon<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2021</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "/mov","name":"bilibili_mov.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">落ち桜のBitterLemon</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/BitterLemonn" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://www.tapechat.net/u/jMcXMI/LE2WWFKH" class="fa fa-Popi" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2166294272"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>
