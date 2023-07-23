@@ -359,7 +359,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2022-12-2<span class="bull">
+        2023-7-23<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -373,7 +373,110 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="Android-Compose-04-列表与状态"><a href="#Android-Compose-04-列表与状态" class="headerlink" title="Android Compose 04 列表与状态"></a>Android Compose 04 列表与状态</h1>
+          <h1 id="Android-Compose-04-列表与状态"><a href="#Android-Compose-04-列表与状态" class="headerlink" title="Android Compose 04 列表与状态"></a>Android Compose 04 列表与状态</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　在上一节中了解了基本的布局组件，并在最后制作了一个消息卡片。这一节我们接着消息卡片，制作一个可以滑动的消息列表。</p>
+<h2 id="变量提取"><a href="#变量提取" class="headerlink" title="变量提取"></a>变量提取</h2><p>　　首先要将消息卡片中的变量提取出来，新建一个用于存储消息卡片的实体类，变量包括消息内容以及用户名（用户头像也可以作为变量，这里为了方便采用统一头像），代码如下</p>
+<pre><code class="kotlin">data class MessageData(
+    val message: String,
+    val username: String,
+)
+</code></pre>
+<p>　　将上一节代码中的变量进行相应的替换并将其装入一个可组合函数中，传入参数为<code>MessageData</code>，代码如下（这里将文字的颜色改为了黑色，并调整了控件大小，更加贴合实机上的演示效果）</p>
+<pre><code class="kotlin">@Composable
+fun MessageCard(message: MessageData) &#123;
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .padding(horizontal = 10.dp, vertical = 20.dp)
+    ) &#123;
+        Image(
+            painter = painterResource(id = R.drawable.melon),
+            contentDescription = &quot;icon&quot;,
+            modifier = Modifier
+                .size(80.dp)
+                .clip(CircleShape)
+        )
+        Spacer(modifier = Modifier.width(10.dp))
+        Column &#123;
+            Text(
+                text = message.username,
+                fontSize = 20.sp,
+                color = Color.White
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = message.message,
+                fontSize = 18.sp,
+                color = Color.White
+            )
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="可滑动列表"><a href="#可滑动列表" class="headerlink" title="可滑动列表"></a>可滑动列表</h2><p>　　在view系统中，我们要实现一个可滑动的列表我们需要配置使用RecyclerView。用过的大家应该都清楚RecyclerView需要配置麻烦的adapter以及layoutManager，在Compose中我们可以使用LazyColumn&#x2F;LazyRow轻松实现。</p>
+<pre><code class="kotlin">@Composable
+fun MessageList(list: List&lt;MessageData&gt;) &#123;
+    LazyColumn &#123;
+        items(list) &#123;
+            MessageCard(message = it)
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>　　LazyColomn中的block不是Composable函数，要使用Compose就必须使用 <strong>item&#x2F;items</strong> block，这里的作用相当于View系统中RecyclerView的item。<code>items</code>相当于一个循环可以向参数中传入 <strong>List或Array</strong> 并在block中调用 <strong>it</strong> 获取到参数中的每一个值，或者也可以传入一个数字代表将其中的 item 重复多少次。</p>
+<p>　　我们只需要向<code>MessageList</code>导入对应的包含message对象的list即可实现可以滑动的List了，效果如下：</p>
+<center>![2023-07-23 16-41-16](https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231644203.gif)</center>
+
+<p>　　但是这里需要值得注意的是，只有在 <code>LazyList/LazyColumn</code> 中的范围才能支持滑动，所以我们在实现滑动操作时最好将 <code>LazyList/LazyColumn</code> 铺满屏幕，除非有一些其他的需求。</p>
+<center>![2023-07-23 16-57-09](https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231658405.gif)</center>
+
+<center>可滑动范围示意图</center>
+
+<h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>　　<strong>状态（State）</strong>作为Compose中至关重要的一环，它决定着界面保存的信息以及刷新的逻辑也是<strong>声明式UI</strong>中不可或缺的一环。在本节仅是简单的介绍一下，后面会有详细讲解的章节。</p>
+<p>　　在我们原来的基础上再添加一个要求，消息卡片中展示的消息可以是很长的消息，但是仅展示一行。当用户点击消息时再展开全部的消息，再次点击时收回消息。这也是现代很多App中采用的设计。</p>
+<p>　　在AnroidView系统中可能需要对消息的长度进行测量，随后再去根据测量结果绘制相应的View，这种实现方式较为麻烦。在Compose中我们可以简单的控制 <code>Text</code> 的 <code>MaxLines</code> 属性去实现它。代码以及效果如下：</p>
+<center>![2023-07-23 17-32-49](https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231733877.gif)</center>
+
+<center>展开收起信息效果</center>
+
+<pre><code class="kotlin">@Composable
+fun MessageCard(message: MessageData) &#123;
+    var isExpanded by remember&#123; mutableStateOf(false) &#125;
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .padding(horizontal = 10.dp, vertical = 20.dp)
+            .fillMaxWidth()
+            .clickable &#123; isExpanded = !isExpanded &#125;
+    ) &#123;
+        Image(
+            painter = painterResource(id = R.drawable.melon),
+            contentDescription = &quot;icon&quot;,
+            modifier = Modifier
+                .size(80.dp)
+                .clip(CircleShape)
+        )
+        Spacer(modifier = Modifier.width(10.dp))
+        Column &#123;
+            Text(
+                text = message.username,
+                fontSize = 20.sp,
+                color = Color.Black
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = message.message,
+                fontSize = 18.sp,
+                color = Color.Black,
+                maxLines = if (isExpanded) Int.MAX_VALUE else 1
+            )
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>　　我们在Composable函数中添加了一个 <code>isExpanded</code> 变量以及在 <code>Row</code> 中添加了一个<strong>clickable方法</strong>让其可以监听点击时间，最后在显示message的 <code>Text</code> 中传入了<strong>maxLines</strong>参数控制其能显示的最大行数。</p>
+<p>　　其中 <code>maxLines = if (isExpanded) Int.MAX_VALUE else 1</code> 比较好理解，判断如果是展开状态就有多少行，否则就只显示一行。但是这里值得注意的是我们定义变量不能像常规写代码时一样，直接 <code> var isExpanded = false</code> 这样定义变量在Compose进行重组，也就是刷新UI布局的时候变量就会丢失，所以我们要使用remember来定义Compose中会影响到数据显示以及布局展示的变量。</p>
+<p>　　remember的作用相当于开辟了一块独立的空间用于存放Composable函数中的变量，在其完成重组后仍能保持修改后的状态。remember block中要使用<strong>与State相关的对象</strong>，并且在赋值是可以<strong>采用by执行委托方式赋值</strong>，直接使用 <strong>&#x3D;</strong> 赋值会获取到 <code>MutableState</code> 对象，<strong>而采用委托方式赋值可以获取到对象中保存的值</strong>（在这个示例代码中是false）</p>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -802,5 +905,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"Lemon-model2.1"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/null"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

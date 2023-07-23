@@ -18,7 +18,7 @@
 	})();
   </script>
   
-  <title itemprop="name">嵌入式系统LED灯编程 | 加绒的时间与精神之屋</title>
+  <title itemprop="name">archive_a: 2023 | 加绒的时间与精神之屋</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -337,536 +337,513 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-<div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/emb.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/emb.webp">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      嵌入式系统LED灯编程</h1>
-      <p class="entry-census">
-        <span>
-          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">
-            <img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg">
-          </a>
-        </span>
-        <span>
-          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io">BitterLemon</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2022-4-30<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
-  </div>
-
+      <div class="blank" style="padding-top: 75px;">
+</div>
 <div id="content" class="site-content">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h1 id="嵌入式系统LED灯编程"><a href="#嵌入式系统LED灯编程" class="headerlink" title="嵌入式系统LED灯编程"></a>嵌入式系统LED灯编程</h1><p><strong>【实验步骤】</strong></p>
-<h2 id="界面设计"><a href="#界面设计" class="headerlink" title="界面设计"></a>界面设计</h2><ol>
-<li><p>打开qtcreator, 单击左侧菜单“欢迎”，然后点击中间“New Project”</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/954b123e4a2f8659.png" alt="image.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207131424337.png"></p>
-</li>
-<li><p>选择“Application”—”Qt Widgets Application”，后点击“Choose”按钮</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/e0154c04ce1280fb.png" alt="image.png"></p>
-</li>
-<li><p>填写工程名称和工程所在路径后点击下一步</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/612acc1efab92a0c.png" alt="image.png"></p>
-</li>
-<li><p>选择开发套件，一般两个都选，第一个是是程序能运行在本机模拟环境中，第二个是使程序运行在实验箱上（可在“项目”选项中对运行环境进行更改）。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/dd4fd5262663c707.png" alt="image.png"></p>
-</li>
-<li><p>指定类名，根据自己的需求完成（本例使用LEDWindows，非图片中的LedWindow）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/b905241e6e061a12.png" alt="image.png"></p>
-</li>
-<li><p>添加到版本控制系统中，本例不添加</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/044ab8be9732675e.png" alt="image.png"></p>
-</li>
-<li><p>双击ledwindows.ui,展现界面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/6fd9df20bfc6c04e.png" alt="image.png"></p>
-</li>
-<li><p>设计界面，在左边工具栏先添加一个Gird Layout，然后往Gird Layout中添加四个Push Button，按试验箱LED灯顺序命名</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/aeb8ee55db76eb51.png" alt="image.png"></p>
-</li>
-<li><p>更改按钮属性，使Object Name与名字保持一致</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/b64eb05b310c46c0.png" alt="image.png"></p>
-</li>
-<li><p>往界面添加一个Horizontal Layout，在layout中添加两个Push Button，命名为逆时针移步和顺时针移步（不建议使用中文，实验箱可能无法显示中文）更改Push Button的Object Name</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/093032469ae110bd.png" alt="image.png"></p>
-</li>
-<li><p>与上一步相同再添加一个Horizontal Layout和两个Push Button并命名为逆时针旋转和顺时针旋转，更改Object Name</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/4da7cf24dbb9b7cb.png" alt="image.png"></p>
-</li>
-<li><p>往界面中添加一个Vertical Layout，再往Vertical Layout中添加两个Push Button并命名为停止旋转和退出，更改Object Name</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/2dd0fffc3356b017.png" alt="image.png"></p>
-</li>
-<li><p>最后将前面做的两个Horizontal Layout放入最后的Vertical Layout中并调整控件大小，效果如图所示，界面元素结构如图红框所示（如果操作困难可以跳过这一步，仅仅为了美观）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/ad7d51945f4a8a15.png" alt="image.png"></p>
-</li>
-</ol>
-<h2 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h2><ol>
-<li><p>将第三次实验的工具头文件通过共享文件夹传入虚拟机中</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/711effd0cf18ed03.png" alt="image.png"></p>
-<p>将头文件移动到项目所在目录（根据自己实际情况)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/5b697340ea64de9c.png" alt="image.png"></p>
-<p>在qt中在头文件文件夹按住右键选择添加现有文件，然后选择虚拟机中刚刚导入的Ex3_API.h选择打开</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/b4de09fa46e3b909.png" alt="image.png"></p>
-<p>添加成功后如图所示</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/937b5ee55fc1dea3.png" alt="image.png"></p>
-</li>
-<li><p>在头文件ledwindows.h中添加头文件声明，并定义函数和变量</p>
-<pre><code class="c++">#ifndef LEDWINDOWS_H
-#define LEDWINDOWS_H
-
-#include &lt;QMainWindow&gt;
-#include &lt;QTimer&gt;
-#include &lt;QPainter&gt;
-
-#include &quot;Ex3_API.h&quot;
-#include &lt;stdio.h&gt;
-#include &lt;stdint.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;sys/ioctl.h&gt;
-#include &lt;termios.h&gt;
-#include &lt;pthread.h&gt;
-#include &lt;signal.h&gt;
-
-namespace Ui &#123;
-class LedWindows;
-&#125;
-
-class LedWindows : public QMainWindow
-&#123;
-    Q_OBJECT
-
-public:
-    explicit LedWindows(QWidget *parent = 0);
-    ~LedWindows();
-
-protected:
-    void paintEvent(QPaintEvent *);
-    void initLED();
-    bool toggleLEDState(int);
-    void moveLEDLeft();
-    void moveLEDRight();
-    void hardwareMove(int position);
-    void hardwareStop();
-    void displayAllLED(bool* newStates);
-    bool* getStates();
-    void syncStates();
-private:
-    Ui::LedWindows *ui;
-
-    const static int LED_NUM = 4;
-    QVector&lt;QRect&gt; LEDRects;
-    bool states[LED_NUM];
-    QTimer *timer;
-&#125;;
-
-#endif // LEDWINDOWS_H
-</code></pre>
-</li>
-<li><p>添加绘制LED状态代码，打开ledwindows.cpp（其中LEDWindows::initLED() 方法中的矩形坐标根据自己的界面设计调整）</p>
-<pre><code class="c++">#include &quot;ledwindows.h&quot;
-#include &quot;ui_ledwindows.h&quot;
-
-QColor ghostWhite(248,248,255);
-QColor royalBlue(65,105,225);
-
-int fd_LED = open(LED, O_RDWR);
-int delay = 500;
-bool isRotated = false;
-
-LEDWindows::LEDWindows(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::LEDWindows)
-&#123;
-    ui-&gt;setupUi(this);
-
-    LEDRects = QVector&lt;QRect&gt;();
-    // init LED states
-    for (int i = 0; i &lt; LED_NUM; i++)&#123;
-        states[i] = false;
-    &#125;
-    LEDWindows::initLED();
-    timer = new QTimer(this);
-&#125;
-
-LEDWindows::~LEDWindows()
-&#123;
-    delete ui;
-&#125;
-
-void LEDWindows::paintEvent(QPaintEvent *event)&#123;
-    QPainter painter(this);
-    QBrush brushWhite(ghostWhite);
-    QBrush brushBule(royalBlue);
-
-    for (int i = 0; i &lt; LEDRects.length(); i++)&#123;
-
-        if (states[i])
-            painter.setBrush(brushBule);
-        else
-            painter.setBrush(brushWhite);
-
-        painter.drawRect(LEDRects.at(i));
-    &#125;
-&#125;
-
-// draw LED rectangle
-void LEDWindows::initLED()&#123;
-    QRect LED1Rect(QPoint(340, 30), QSize(20, 20));
-    QRect LED2Rect(QPoint(340, 90), QSize(20, 20));
-    QRect LED3Rect(QPoint(130, 90), QSize(20, 20));
-    QRect LED4Rect(QPoint(130, 30), QSize(20, 20));
-
-    LEDRects.append(LED1Rect);
-    LEDRects.append(LED2Rect);
-    LEDRects.append(LED3Rect);
-    LEDRects.append(LED4Rect);
-&#125;
-</code></pre>
-</li>
-<li><p>点击运行，选择保存所有，运行界面应如图所示（此时是在模拟环境）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/790d63481484f720.png" alt="image.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/37cb2908062c20e1.png" alt="image.png"></p>
-</li>
-<li><p>编写按键逻辑代码，选择ledwindows.ui打开界面编辑，在led4按钮上长按右键选择【转到槽】，并选择【clicked()】方法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/faeee7dd1145456a.png" alt="image.png"></p>
-<p>编写逻辑代码，代码如下</p>
-<pre><code class="c++">void LEDWindows::on_LED4_clicked()
-&#123;
-  if(!isRotated)&#123;
-      if (LEDWindows::toggleLEDState(4))
-          FS4412_LED_switch(fd_LED, 4);
-      else
-          printf(&quot;ERROR: Can not toogle LED state!\n&quot;);
-  &#125;else&#123;
-      printf(&quot;WARNING: Can not change state while rotating\n&quot;);
-  &#125;
-&#125;
-</code></pre>
-</li>
-<li><p>仿造上一步的操作添加其他LED按键的逻辑代码，代码如下（注意对应关系）</p>
-<pre><code class="c++">void LEDWindows::on_LED1_clicked()
-&#123;
-    if(!isRotated)&#123;
-        if (LEDWindows::toggleLEDState(1))
-            FS4412_LED_switch(fd_LED, 1);
-        else
-            printf(&quot;ERROR: Can not toogle LED state!\n&quot;);
-    &#125;else&#123;
-        printf(&quot;WARNING: Can not change state while rotating\n&quot;);
-    &#125;
-&#125;
-
-void LEDWindows::on_LED2_clicked()
-&#123;
-    if(!isRotated)&#123;
-        if (LEDWindows::toggleLEDState(2))
-            FS4412_LED_switch(fd_LED, 2);
-        else
-            printf(&quot;ERROR: Can not toogle LED state!\n&quot;);
-    &#125;else&#123;
-        printf(&quot;WARNING: Can not change state while rotating\n&quot;);
-    &#125;
-&#125;
-
-void LEDWindows::on_LED3_clicked()
-&#123;
-    if(!isRotated)&#123;
-        if (LEDWindows::toggleLEDState(3))
-            FS4412_LED_switch(fd_LED, 3);
-        else
-            printf(&quot;ERROR: Can not toogle LED state!\n&quot;);
-    &#125;else&#123;
-        printf(&quot;WARNING: Can not change state while rotating\n&quot;);
-    &#125;
-&#125;
-</code></pre>
-<p>编写切换LED状态工具方法，代码如下</p>
-<pre><code class="c++">// switch LED state utils
-bool LEDWindows::toggleLEDState(int numOfLED)&#123;
-    switch (numOfLED)&#123;
-        case 1:&#123;
-            states[0] = !states[0];
-            update();
-            break;
-        &#125;
-        case 2:&#123;
-            states[1] = !states[1];
-            update();
-            break;
-        &#125;
-        case 3:&#123;
-            states[2] = !states[2];
-            update();
-            break;
-        &#125;
-        case 4:&#123;
-            states[3] = !states[3];
-            update();
-            break;
-        &#125;
-        default:&#123;
-            return false;
-        &#125;
-    &#125;
-    return true;
-&#125;
-</code></pre>
-<p>点击运行，保存所有，此时LED按键应该能切换所示LED状态框的颜色，如图所示</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/62a1e43290b16f21.png" alt="image.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/4810a379fee50969.png" alt="image.png"></p>
-</li>
-<li><p>按照第5步的方法添加逆时针移步和顺时针移步的clicked槽方法，逻辑代码如下（注意对应关系）</p>
-<pre><code class="c++">void LEDWindows::on_lastStep_clicked()
-&#123;
-    if (!isRotated)&#123;
-        LEDWindows::moveLEDLeft();
-        LEDWindows::hardwareMove(1);
-    &#125;else &#123;
-        printf(&quot;WARNING: Can not change state while rotatin\n&quot;);
-    &#125;
-&#125;
-
-void LEDWindows::on_nextStep_clicked()
-&#123;
-    if (!isRotated)&#123;
-        LEDWindows::moveLEDRight();
-        LEDWindows::hardwareMove(2);
-    &#125;else &#123;
-        printf(&quot;WARNING: Can not change state while rotatin\n&quot;);
-    &#125;
-&#125;
-</code></pre>
-</li>
-<li><p>添加界面移步工具方法以及连接硬件API移步方法，代码如下：</p>
-<pre><code class="c++">// move step util
-void LEDWindows::moveLEDLeft()&#123;
-    bool tmp = states[0];
-    for (int i = 0; i &lt; 3; i++)&#123;
-        states[i] = states[i + 1];
-    &#125;
-    states[3] = tmp;
-    update();
-    return;
-&#125;
-
-void LEDWindows::moveLEDRight()&#123;
-    bool tmp = states[3];
-    for (int i = 3; i &gt; 0; i--)&#123;
-        states[i] = states[i - 1];
-    &#125;
-    states[0] = tmp;
-    update();
-    return;
-&#125;
-
-/* connect to hardware move step
-*  @param position: 1 -&gt; move anticlockwise
-*                  2 -&gt; move clockwise
-*/
-void LEDWindows::hardwareMove(int position)&#123;
-    int res[2] = &#123;position, 0&#125;;
-    FS4412_LED_rotate(fd_LED, res);
-
-&#125;
-</code></pre>
-<p>点击运行，保存所有，执行图2逆时针移步操作，结果如图3所示。顺时针同理</p>
-<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/11ba2788acd406be.png"/></center>
-
-<center>图1</center>
-
-<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/a113bc7f8a248e11.png"/></center>
-
-<center>图2</center>
-
-<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/62d4a127ea2494a8.png"/></center>
-
-<center>图3</center>
-</li>
-<li><p>按照第5步方法继续添加逆时针旋转、顺时针旋转、停止旋转按钮的clicked槽函数，逻辑代码如下：（注意对应关系）</p>
-<pre><code class="c++">void LEDWindows::on_anticlockRotate_clicked()
-&#123;
-  isRotated = true;
-  //reset timer
-  LEDWindows::hardwareStop();
-  int res[2] = &#123;3, delay&#125;;
-
-  // connect timer to moveLEDLeft function
-  connect(timer, &amp;QTimer::timeout, this, &amp;LEDWindows::moveLEDLeft);
-
-  // set each loop delay
-  timer-&gt;start(delay);
-
-  // must set delay(um) at main thread equal to delay time(ms)
-  usleep(500000);
-  FS4412_LED_rotate(fd_LED, res);
-&#125;
-
-void LEDWindows::on_clockRotate_clicked()
-&#123;
-  isRotated = true;
-    
-  //reset timer
-  LEDWindows::hardwareStop();
-  int res[2] = &#123;4, delay&#125;;
-    
-  // connect timer to moveLEDLRight function
-  connect(timer, &amp;QTimer::timeout, this, &amp;LEDWindows::moveLEDRight);
-    
-  // set each loop delay
-  timer-&gt;start(delay);
- 
-  // must set delay(us) at main thread equal to delay time(ms)
-  usleep(500000);
-  FS4412_LED_rotate(fd_LED, res);
-&#125;
-</code></pre>
-<p>编写硬件停止相关工具方法，代码如下：</p>
-<pre><code class="c++">// hardware stop util
-void LEDWindows::hardwareStop()&#123;
-  //reset timer
-  timer-&gt;stop();
-  timer-&gt;disconnect();
-  int res[2] = &#123;0, 0&#125;;
-  FS4412_LED_rotate(fd_LED, res);
-&#125;
-</code></pre>
-</li>
-<li><p>点击运行，保存所有，执行图2逆时针旋转操作，结果如图3（动图，如无法播放请跳过），点击停止旋转即可停止旋转。顺时针旋转同理</p>
-<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/5166384a2ede3e6d.png"/></center>
-
-<center>图1</center>
-<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/f156cbee4582a21f.png"/></center>
-
-<center>图2</center>
-<center><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/40a0a4091a6f14e3.png"/></center>
-
-<center>图3</center>
-</li>
-<li><p>按照第5步添加退出按钮的clicked槽方法，并编写逻辑代码，代码如下：（该代码只能在模拟环境下关闭窗口，在实验箱上无法关闭窗口）</p>
-<pre><code class="c++">void LEDWindows::on_exit_clicked()
-
-&#123;
-  QApplication::quit();
-&#125;
-</code></pre>
-<p>至此全部功能实现</p>
-</li>
-</ol>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/2241d713a006d44c.jpg"></li>
-                <li class="wechat-code"><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/85440fc204a65735.jpg"></li>
-              </ul>
+  <div id="main">
+    <header class="page-header">
+      <h1 class="cat-title">
+      归档</h1>
+      <span class="cat-des">
+        <p>
+        Archives</p>
+      </span>
+    </header>
+    <div id="main-part">
+      <article class="art">
+        <div class="art-main">
+          <div class="art-content">
+            <div id="archives">
+              <p style="text-align:right;">
+                [<span id="al_expand_collapse" style="cursor: s-resize;">
+                全部展开/收缩</span>
+              ]</p>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2023年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      07月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2023/07/23/android-compose04/">
+                          <span style="color:#0bf;">
+                          23日17:53:00</span>
+                          Android Compose 04 列表与状态
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2022年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      11月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2022/11/25/android-compose03/">
+                          <span style="color:#0bf;">
+                          25日10:00:09</span>
+                          Android Compose 03 基础Layout
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      08月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2022/08/15/android-compose02/">
+                          <span style="color:#0bf;">
+                          15日17:57:55</span>
+                          Android Compose 02 基础控件
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2022/08/11/android-compose01/">
+                          <span style="color:#0bf;">
+                          11日16:49:15</span>
+                          Android Compose 01 从入门到入土
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      07月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2022/07/15/build03/">
+                          <span style="color:#0bf;">
+                          15日17:09:55</span>
+                          让你的博客能更加知名，申请百度收录
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2022/07/12/build02/">
+                          <span style="color:#0bf;">
+                          12日16:11:14</span>
+                          使用PicGo快速搭建个人图床,拯救你的博客图片
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      04月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2022/04/30/embedded_develop01/">
+                          <span style="color:#0bf;">
+                          30日01:03:10</span>
+                          嵌入式系统LED灯编程
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2021年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      10月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2021/10/24/Java-teach01/">
+                          <span style="color:#0bf;">
+                          24日15:28:15</span>
+                          浅谈Java抽象类以及接口
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      09月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2021/09/17/Java-developer01/">
+                          <span style="color:#0bf;">
+                          17日17:15:55</span>
+                          认识Java中的反射机制以及配置文件的应用
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      07月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2021/07/26/android-developer11/">
+                          <span style="color:#0bf;">
+                          26日22:32:10</span>
+                          多重结构嵌套实现可伸缩头部界面
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/07/23/android-developer10/">
+                          <span style="color:#0bf;">
+                          23日16:16:17</span>
+                          自定义逻辑实现折叠TextView
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/07/15/android-developer09/">
+                          <span style="color:#0bf;">
+                          15日22:52:11</span>
+                          TagFlowLayout帮你快速完成Tag页
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/07/15/android-developer08/">
+                          <span style="color:#0bf;">
+                          15日13:36:07</span>
+                          一步搞定三级地址联动选择器
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/07/14/android-developer07/">
+                          <span style="color:#0bf;">
+                          14日16:04:38</span>
+                          EditText的输入检测
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/07/13/android-developer06/">
+                          <span style="color:#0bf;">
+                          13日23:16:43</span>
+                          使用全局变量简单保存重复使用的值
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      05月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2021/05/14/android-developer05/">
+                          <span style="color:#0bf;">
+                          14日20:38:22</span>
+                          RecycleView轻松解决消息列表
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/05/09/android-developer04/">
+                          <span style="color:#0bf;">
+                          09日21:09:50</span>
+                          viewpager常见问题及解决
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/05/09/android-developer03/">
+                          <span style="color:#0bf;">
+                          09日00:20:51</span>
+                          TabLayout轻松实现页中页
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/05/03/android-developer02/">
+                          <span style="color:#0bf;">
+                          03日00:17:33</span>
+                          结合viewpager的仿微信界面跳转设计
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/05/02/android-developer01/">
+                          <span style="color:#0bf;">
+                          02日00:23:16</span>
+                          利用底部导航以及碎片轻松实现不同页面的切换
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      02月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2021/02/12/mc-05/">
+                          <span style="color:#0bf;">
+                          12日22:04:51</span>
+                          MC开发者日志#05
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/02/08/mc-04/">
+                          <span style="color:#0bf;">
+                          08日23:48:05</span>
+                          MC开发者日志#04
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/02/07/mc-03/">
+                          <span style="color:#0bf;">
+                          07日22:49:25</span>
+                          MC开发者日志#03
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/02/06/mc_02/">
+                          <span style="color:#0bf;">
+                          06日23:59:56</span>
+                          MC开发者日志#02
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/02/04/mc_01/">
+                          <span style="color:#0bf;">
+                          04日23:56:12</span>
+                          MC开发者日志#01
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/02/03/build/">
+                          <span style="color:#0bf;">
+                          03日12:30:45</span>
+                          博客它终于建好啦
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
             </div>
           </div>
         </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
       </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2022/07/12/build02/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207121630509.jpeg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/202207121630509.jpeg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                使用PicGo快速搭建个人图床,拯救你的博客图片</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2021/10/24/Java-teach01/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/java1.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/java1.webp">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                浅谈Java抽象类以及接口</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
-      
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "bWMHTgcIMb8DUNXf7AycqETh-gzGzoHsz",
-        appKey: "WY3j7NGFza5tatqze5Dwv4Cz",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
-
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a target="_blank" rel="noopener" href="https://BitterLemonn.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/BitterLemonn/BlogPicBed@master/U2df83f736fcf41738b92fb1bcd43d592l.jpg" itemprop="image" alt="BitterLemon" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a target="_blank" href="https://BitterLemonn.github.io" itemprop="url" rel="author noopener">BitterLemon</a>
-            </h3>
-          </div>
-        </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>初めて会ったの日から　僕の心の全てを奪った</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+    </div>
+  </div>
 </div>
-
-
 
     </div>    
     <div class="ins-search">
