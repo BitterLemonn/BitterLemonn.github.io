@@ -424,10 +424,10 @@ fun MessageList(list: List&lt;MessageData&gt;) &#123;
 </code></pre>
 <p>　　LazyColomn中的block不是Composable函数，要使用Compose就必须使用 <strong>item&#x2F;items</strong> block，这里的作用相当于View系统中RecyclerView的item。<code>items</code>相当于一个循环可以向参数中传入 <strong>List或Array</strong> 并在block中调用 <strong>it</strong> 获取到参数中的每一个值，或者也可以传入一个数字代表将其中的 item 重复多少次。</p>
 <p>　　我们只需要向<code>MessageList</code>导入对应的包含message对象的list即可实现可以滑动的List了，效果如下：</p>
-<center><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231644203.gif" zoom="60%"></center>
+<center><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231644203.gif" style="zoom:40%"></center>
 
 <p>　　但是这里需要值得注意的是，只有在 <code>LazyList/LazyColumn</code> 中的范围才能支持滑动，所以我们在实现滑动操作时最好将 <code>LazyList/LazyColumn</code> 铺满屏幕，除非有一些其他的需求。</p>
-<center><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231658405.gif" zoom="60%"></center>
+<center><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231658405.gif" style="zoom:40%"></center>
 
 <center>可滑动范围示意图</center>
 
