@@ -434,7 +434,7 @@ fun MessageList(list: List&lt;MessageData&gt;) &#123;
 <h2 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h2><p>　　<strong>状态（State）</strong>作为Compose中至关重要的一环，它决定着界面保存的信息以及刷新的逻辑也是<strong>声明式UI</strong>中不可或缺的一环。在本节仅是简单的介绍一下，后面会有详细讲解的章节。</p>
 <p>　　在我们原来的基础上再添加一个要求，消息卡片中展示的消息可以是很长的消息，但是仅展示一行。当用户点击消息时再展开全部的消息，再次点击时收回消息。这也是现代很多App中采用的设计。</p>
 <p>　　在AnroidView系统中可能需要对消息的长度进行测量，随后再去根据测量结果绘制相应的View，这种实现方式较为麻烦。在Compose中我们可以简单的控制 <code>Text</code> 的 <code>MaxLines</code> 属性去实现它。代码以及效果如下：</p>
-<center><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231733877.gif" style="zoom:60%"></center>
+<center><img src="https://raw.githubusercontent.com/BitterLemonn/BlogPicBed/master/otherPic/202307231733877.gif" style="zoom:40%"></center>
 
 <center>展开收起信息效果</center>
 
