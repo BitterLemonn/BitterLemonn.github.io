@@ -386,7 +386,7 @@
 </code></pre>
 <p>其中isExpanded是上一节中定义的关于收缩文本框是否处于扩张状态的变量，在 <code>animateColorAsState</code> 中我们只需要根据情况改变 <code>targetValue</code> 的值即可自动完成渐变转化的过程。之后我们只需要将 <code>textBgColor</code> 变量如Color一样使用即可。</p>
 <p>　　将生硬的展开动画转为动画也仅需要使用为 <code>modifier</code> 添加使用 <code>animateContentSize()</code> 函数即可，这个函数的作用是将改变的大小通过动画的方式呈现出来，当不需要关注变化的速度、变化的方向等因素时不需要向其中传入参数，采用默认的即可。</p>
-<p>　　我们只需要将上文中提到的参数放在一个包含消息文本的 <code>Box</code> 布局的 <code>Modifier</code> 参数当中即可。这时候我们运行检查效果会发现消息文本旁边的背景颜色所框出的区域是矩形的，不太符合现在的审美。只需要添加在<a href="blog.bitterlemon.icu/2022/11/25/android-compose03/">第三章</a>中学到的 <code>clip</code> 参数将背景设为圆角即可。完整代码如下：</p>
+<p>　　我们只需要将上文中提到的参数放在一个包含消息文本的 <code>Box</code> 布局的 <code>Modifier</code> 参数当中即可。这时候我们运行检查效果会发现消息文本旁边的背景颜色所框出的区域是矩形的，不太符合现在的审美。只需要添加在<a href="blog.bitterlemon.cn/2022/11/25/android-compose03/">第三章</a>中学到的 <code>clip</code> 参数将背景设为圆角即可。完整代码如下：</p>
 <pre><code class="kotlin">@Composable
 fun MessageCard(message: MessageData) &#123;
     var isExpanded by remember &#123; mutableStateOf(false) &#125;
@@ -553,7 +553,7 @@ fun MessageCard(message: MessageData) &#123;
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2023 BitterLemon<br>
+      &copy; 2026 BitterLemon<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
